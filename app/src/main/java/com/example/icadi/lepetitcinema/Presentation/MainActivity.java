@@ -1,5 +1,6 @@
 package com.example.icadi.lepetitcinema.Presentation;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -8,14 +9,26 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toolbar;
 
+import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.R;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
+
+    private ListView listView;
+    // ArrayList to store films
+    private ArrayList<Film> films;
+    // Adapter used to show films from films ArrayList
+    private FilmAdapter filmAdapter;
+    // DB Handler
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +41,34 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
-        ListView listView = (ListView) findViewById(R.id.filmList);
+        listView = (ListView) findViewById(R.id.filmList);
 
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
+
+        films = new ArrayList<Film>();
+        films.add(new Film("Film 1", "Film beschrijving", 120));
+        films.add(new Film("Film 2", "Film beschrijving", 120));
+        films.add(new Film("Film 3", "Film beschrijving", 120));
+        films.add(new Film("Film 4", "Film beschrijving", 120));
+        films.add(new Film("Film 5", "Film beschrijving", 120));
+        films.add(new Film("Film 6", "Film beschrijving", 120));
+        films.add(new Film("Film 7", "Film beschrijving", 120));
+        films.add(new Film("Film 8", "Film beschrijving", 120));
+        films.add(new Film("Film 9", "Film beschrijving", 120));
+
+        filmAdapter = new FilmAdapter(getApplicationContext(), getLayoutInflater(), films);
+        listView.setAdapter(filmAdapter);
+
+        // Set an onItemClickListener, which directs the user to the DetailActivity Page of the Film
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(), FilmDetailActivity.class);
+                intent.putExtra("Film", films.get(i).getName());
+                startActivity(intent);
+            }
+        });
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
