@@ -1,26 +1,37 @@
 package com.example.icadi.lepetitcinema.Domain;
 
+import java.io.File;
+
 /**
  * Created by icadi on 27-3-18.
  */
 
 public class Ticket {
-    private int[][] qrCode;
+    private String qrCodeData;
+    private File qrCodeImage;
     private String date;
     private String time;
 
-    public Ticket(int[][] qrCode, String date, String time) {
-        this.qrCode = qrCode;
+    public Ticket(String qrCodeData, String date, String time) {
+        this.qrCodeData = qrCodeData;
         this.date = date;
         this.time = time;
     }
 
-    public int[][] getQrCode() {
-        return qrCode;
+    public String getQrCodeData() {
+        return qrCodeData;
     }
 
-    public void setQrCode(int[][] qrCode) {
-        this.qrCode = qrCode;
+    public void setQrCodeData(String qrCodeData) {
+        this.qrCodeData = qrCodeData;
+    }
+
+    public File getQrCodeImage() {
+        return qrCodeImage;
+    }
+
+    public void setQrCodeImage(File qrCodeImage) {
+        this.qrCodeImage = qrCodeImage;
     }
 
     public String getDate() {
