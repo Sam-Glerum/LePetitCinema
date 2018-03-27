@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LePetitCinema</string>
+    <string name="payTicketButton">Order ticket</string>
 </resources>
