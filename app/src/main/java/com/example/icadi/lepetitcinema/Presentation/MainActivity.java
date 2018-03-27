@@ -11,11 +11,21 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toolbar;
 
+import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.R;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
+
+    private ListView listView;
+    // ArrayList to store films
+    private ArrayList<Film> films;
+    // Adapter used to show films from films ArrayList
+    private FilmAdapter filmAdapter;
+    // DB Handler
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +38,17 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
-        ListView listView = (ListView) findViewById(R.id.filmList);
+        listView = (ListView) findViewById(R.id.filmList);
 
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
+
+        films = new ArrayList<Film>();
+        films.add(new Film("Film 1", "Film beschrijving", 120));
+        films.add(new Film("Film 2", "Film beschrijving", 120));
+        films.add(new Film("Film 3", "Film beschrijving", 120));
+        filmAdapter = new FilmAdapter(getApplicationContext(), getLayoutInflater(), films);
+        listView.setAdapter(filmAdapter);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
