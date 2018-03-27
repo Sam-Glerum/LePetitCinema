@@ -4,13 +4,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.icadi.lepetitcinema.R;
 
-public class PaymentSimulationActivity extends AppCompatActivity {
+public class PaymentSimulationActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Intent intent;
 
@@ -65,6 +66,12 @@ public class PaymentSimulationActivity extends AppCompatActivity {
         seatNumber.setText(intent.getStringExtra("seatNumber"));
         price.setText(intent.getStringExtra("price"));
 
-        payTicketButton.setOnClickListener(new ButtonActionListenerHandler());
+        payTicketButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent toSuccessPayment = new Intent(getApplicationContext(), SuccessPaymentActivity.class);
+        startActivity(toSuccessPayment);
     }
 }
