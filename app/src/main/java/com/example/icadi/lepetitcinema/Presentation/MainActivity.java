@@ -1,4 +1,4 @@
-package com.example.icadi.lepetitcinema;
+package com.example.icadi.lepetitcinema.Presentation;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toolbar;
+
+import com.example.icadi.lepetitcinema.R;
 
 public class MainActivity extends AppCompatActivity {
 
