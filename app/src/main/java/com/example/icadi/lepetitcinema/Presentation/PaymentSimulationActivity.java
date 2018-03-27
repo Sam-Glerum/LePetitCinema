@@ -65,6 +65,6 @@ public class PaymentSimulationActivity extends AppCompatActivity {
         seatNumber.setText(intent.getStringExtra("seatNumber"));
         price.setText(intent.getStringExtra("price"));
 
-        payTicketButton.setOnClickListener(new ButtonActionListenerHandeler());
+        payTicketButton.setOnClickListener(new ButtonActionListenerHandler());
     }
 }
