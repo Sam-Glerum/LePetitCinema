@@ -6,11 +6,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.icadi.lepetitcinema.Domain.Seat;
 import com.example.icadi.lepetitcinema.R;
+
+import java.util.ArrayList;
 
 public class SeatPickerActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView[][] seatImageViews;
+    private ImageView[][] seatImageViews;
+    private ArrayList<Seat> currentlySelectedSeats = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +65,21 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
             Log.i("SeatPickerActivity", "ERROR: Could not get drawable to check!");
         }
 
+    }
 
+    public ImageView[][] getSeatImageViews() {
+        return seatImageViews;
+    }
+
+    public void setSeatImageViews(ImageView[][] seatImageViews) {
+        this.seatImageViews = seatImageViews;
+    }
+
+    public ArrayList<Seat> getCurrentlySelectedSeats() {
+        return currentlySelectedSeats;
+    }
+
+    public void setCurrentlySelectedSeats(ArrayList<Seat> currentlySelectedSeats) {
+        this.currentlySelectedSeats = currentlySelectedSeats;
     }
 }
