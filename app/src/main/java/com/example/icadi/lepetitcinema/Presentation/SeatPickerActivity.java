@@ -1,5 +1,6 @@
 package com.example.icadi.lepetitcinema.Presentation;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,9 +15,15 @@ import java.util.ArrayList;
 
 public class SeatPickerActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public final static String SEATS = "SEATS";
+    public final static String FILMTITLE = "FILMTITLE";
+    public final static String AMOUNTOFTICKETS = "AMOUNTOFTICKETS";
+    public final static String PRICE = "PRICE";
+//    public final static String CINEMAROOMNR = "CINEMAROOMNR";
+
     private ImageView[][] seatImageViews;
     private ArrayList<Seat> currentlySelectedSeats = new ArrayList<>();
-    TextView amountOfSeatsTextView;
+    private TextView amountOfSeatsTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +37,14 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
         // Calculate and log the size of the 2d array
         int sizeOfSeatImageViews = (seatImageViews[0].length + seatImageViews[1].length +
-        seatImageViews[3].length + seatImageViews[4].length + seatImageViews[5].length +
+                seatImageViews[3].length + seatImageViews[4].length + seatImageViews[5].length +
                 seatImageViews[0].length);
-        Log.i("SeatPickerActivity","size:" + sizeOfSeatImageViews);
+        Log.i("SeatPickerActivity", "size:" + sizeOfSeatImageViews);
     }
 
     /**
      * Returns the ImageViews of the seats displayed in the activity.
+     *
      * @return A 2d array of ImageViews.
      */
     public ImageView[][] getAllSeats() {
@@ -48,7 +56,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 int resId = getResources().getIdentifier(seatId, "id", getPackageName());
                 ImageView imageView = (ImageView) findViewById(resId);
                 imageView.setOnClickListener(this);
-                imageViews[i][ii]= imageView;
+                imageViews[i][ii] = imageView;
             }
         }
         return imageViews;
@@ -56,33 +64,45 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-        ImageView imageView = findViewById(view.getId());
-        if (imageView.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.cinemaseat_available).getConstantState())) {
-            imageView.setImageDrawable(getResources().getDrawable(R.drawable.cinemaseat_selected));
-            Seat seat = new Seat(getResources().getResourceEntryName(view.getId()));
-            currentlySelectedSeats.add(seat);
-            Log.i("SeatPickerActivity","Added seat: " + seat.getNumber() + " to current selection, size is now: " + currentlySelectedSeats.size());
 
-        } else if (imageView.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.cinemaseat_selected).getConstantState())) {
-            imageView.setImageDrawable(getResources().getDrawable(R.drawable.cinemaseat_available));
-            String seatNumber = getResources().getResourceEntryName(view.getId());
+        switch (view.getId()) {
+            case R.id.seatPicker_button_buyTickets:
+                Intent toPayment = new Intent(getApplicationContext(), PaymentSimulationActivity.class);
+                toPayment.putExtra(SEATS, currentlySelectedSeats);
+//                toPayment.putExtra(FILMTITLE, idk)
+//                toPayment.putExtra(PRICE, price);
+                toPayment.putExtra(AMOUNTOFTICKETS, currentlySelectedSeats.size());
+                break;
 
-            for (int i = 0; i < currentlySelectedSeats.size(); i++) {
-                Seat seat = currentlySelectedSeats.get(i);
-                if (seat.getNumber().equals(seatNumber)) {
-                    currentlySelectedSeats.remove(seat);
-                    Log.i("SeatPickerActivity","Removed seat: " + seat.getNumber() + " from current selection, size is now: "+ currentlySelectedSeats.size());
+            default:
+                ImageView imageView = findViewById(view.getId());
+                if (imageView.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.cinemaseat_available).getConstantState())) {
+                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.cinemaseat_selected));
+                    Seat seat = new Seat(getResources().getResourceEntryName(view.getId()));
+                    currentlySelectedSeats.add(seat);
+                    Log.i("SeatPickerActivity", "Added seat: " + seat.getNumber() + " to current selection, size is now: " + currentlySelectedSeats.size());
+
+                } else if (imageView.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.cinemaseat_selected).getConstantState())) {
+                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.cinemaseat_available));
+                    String seatNumber = getResources().getResourceEntryName(view.getId());
+
+                    for (int i = 0; i < currentlySelectedSeats.size(); i++) {
+                        Seat seat = currentlySelectedSeats.get(i);
+                        if (seat.getNumber().equals(seatNumber)) {
+                            currentlySelectedSeats.remove(seat);
+                            Log.i("SeatPickerActivity", "Removed seat: " + seat.getNumber() + " from current selection, size is now: " + currentlySelectedSeats.size());
+                        }
+                    }
+
+                } else if (imageView.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.cinemaseat_occupied).getConstantState())) {
+                    Log.i("SeatPickerActivity", "The chosen seat is already occupied!");
+                } else {
+                    Log.i("SeatPickerActivity", "ERROR: Could not get drawable to check!");
                 }
-            }
 
-        } else if (imageView.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.cinemaseat_occupied).getConstantState())) {
-            Log.i("SeatPickerActivity", "The chosen seat is already occupied!");
-        } else {
-            Log.i("SeatPickerActivity", "ERROR: Could not get drawable to check!");
+                amountOfSeatsTextView.setText("" + currentlySelectedSeats.size());
+
         }
-
-        amountOfSeatsTextView.setText("" + currentlySelectedSeats.size());
-
     }
 
     public ImageView[][] getSeatImageViews() {
