@@ -9,7 +9,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.icadi.lepetitcinema.Domain.Seat;
 import com.example.icadi.lepetitcinema.R;
+
+import java.util.ArrayList;
 
 public class PaymentSimulationActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -60,11 +63,27 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
 
         intent = getIntent();
 
-        filmTitle.setText(intent.getStringExtra("filmTitle"));
-        amountOfTickets.setText(intent.getStringExtra("amountOfTickets"));
-        cinemaRoom.setText(intent.getStringExtra("cinemaRoom"));
-        seatNumber.setText(intent.getStringExtra("seatNumber"));
-        price.setText(intent.getStringExtra("price"));
+//        filmTitle.setText(intent.getStringExtra(SeatPickerActivity.FILMTITLE));
+        filmTitle.setText("Jumanji");
+        amountOfTickets.setText("Amount of tickets: " + intent.getStringExtra(SeatPickerActivity.AMOUNTOFTICKETS));
+//        cinemaRoom.setText(intent.getStringExtra("NaN"));
+
+        ArrayList<Seat> selectedSeats = (ArrayList<Seat>) intent.getSerializableExtra(SeatPickerActivity.SEATS);
+
+        String seatNumbers = "";
+
+        for (int i = 0; i < selectedSeats.size(); i++) {
+            seatNumbers += selectedSeats.get(i).getNumber();
+            if (i != selectedSeats.size()-1) {
+                seatNumbers += ", ";
+            } else {
+                seatNumbers += "";
+            }
+        }
+
+        seatNumber.setText("Seats: " + seatNumbers);
+
+//        price.setText(intent.getStringExtra("price"));
 
         payTicketButton.setOnClickListener(this);
     }
