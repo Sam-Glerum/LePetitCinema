@@ -1,4 +1,4 @@
-package com.example.icadi.lepetitcinema.Persistency;
+package com.example.icadi.lepetitcinema.Persistency.DaoInterfaces;
 
 import com.example.icadi.lepetitcinema.Domain.User;
 
