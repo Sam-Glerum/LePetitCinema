@@ -22,6 +22,8 @@
         <activity android:name=".Presentation.FilmDetailActivity"/>
         <activity android:name=".Presentation.SeatPickerActivity"></activity>
         <activity android:name=".Presentation.ContactActivity"></activity>
+        <activity android:name=".Presentation.ETicketsActivity" />
+        <activity android:name=".Presentation.ETicketDetailActivity"></activity>
     </application>
 
 </manifest>

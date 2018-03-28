@@ -14,4 +14,6 @@
     <string name="TelephoneNumber" translatable="false">+31 76 562 3773</string>
     <string name="Emailaddress" translatable="false">events@lepetitcinema.nl</string>
     <string name="Saturday">zaterdag:     09:30 tot 22:30</string>
+    <string name="menuItemETicket">Tickets</string>
+    <string name="ticketString">Ticket</string>
 </resources>
