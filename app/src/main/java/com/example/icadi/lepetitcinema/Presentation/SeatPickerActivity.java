@@ -81,6 +81,26 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 startActivity(toPayment);
                 break;
 
+            case R.id.seatPicker_button_childDecrease:
+                // TODO: Create methods for increase and decrease buttons
+                break;
+
+            case R.id.seatPicker_button_childIncrease:
+                break;
+
+            case R.id.seatPicker_button_normalDecrease:
+                break;
+
+            case R.id.seatPicker_button_normalIncrease:
+                break;
+
+            case R.id.seatPicker_button_elderDecrease:
+                break;
+
+            case R.id.seatPicker_button_elderIncrease:
+                break;
+
+
             default:
                 ImageView imageView = findViewById(view.getId());
                 if (imageView.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.cinemaseat_available).getConstantState())) {
