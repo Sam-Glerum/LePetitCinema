@@ -674,20 +674,6 @@
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_amountOfSeatsLabel"
             app:layout_constraintTop_toBottomOf="@+id/screen" />
 
-        <SeekBar
-            android:id="@+id/seatPicker_seekBar_child"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_textView_childLabel" />
-
         <TextView
             android:id="@+id/seatPicker_textView_childLabel"
             android:layout_width="wrap_content"
@@ -738,12 +724,11 @@
             android:id="@+id/divider2"
             android:layout_width="368dp"
             android:layout_height="1dp"
-            android:layout_marginTop="8dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_seekBar_child" />
+            tools:layout_editor_absoluteY="344dp" />
 
         <TextView
             android:id="@+id/seatPicker_textView_normalLabel"
@@ -780,29 +765,15 @@
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_normalAmount"
             app:layout_constraintTop_toTopOf="@+id/seatPicker_textView_normalAmount" />
 
-        <SeekBar
-            android:id="@+id/seatPicker_seekBar_normal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_textView_normalLabel" />
-
         <View
             android:id="@+id/divider3"
             android:layout_width="368dp"
             android:layout_height="1dp"
-            android:layout_marginTop="8dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_seekBar_normal" />
+            tools:layout_editor_absoluteY="406dp" />
 
         <TextView
             android:id="@+id/seatPicker_textView_elderLabel"
@@ -839,19 +810,6 @@
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_elderAmount"
             app:layout_constraintTop_toTopOf="@+id/seatPicker_textView_elderAmount" />
 
-        <SeekBar
-            android:id="@+id/seatPicker_seekBar_elder"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_textView_elderLabel" />
-
         <TextView
             android:id="@+id/seatPicker_textView_totalPriceLabel"
             android:layout_width="wrap_content"
@@ -867,12 +825,11 @@
             android:id="@+id/divider5"
             android:layout_width="368dp"
             android:layout_height="1dp"
-            android:layout_marginTop="8dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_seekBar_elder" />
+            tools:layout_editor_absoluteY="468dp" />
 
         <TextView
             android:id="@+id/seatPicker_textView_totalPriceAmount"
