@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.icadi.lepetitcinema.Domain.Seat;
 import com.example.icadi.lepetitcinema.R;
@@ -15,11 +16,14 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
     private ImageView[][] seatImageViews;
     private ArrayList<Seat> currentlySelectedSeats = new ArrayList<>();
+    TextView amountOfSeatsTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat_picker);
+
+        amountOfSeatsTextView = (TextView) findViewById(R.id.seatPicker_textView_amountOfSeats);
 
         // Create 2d array for the ImageViews
         seatImageViews = getAllSeats();
@@ -57,7 +61,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
             imageView.setImageDrawable(getResources().getDrawable(R.drawable.cinemaseat_selected));
             Seat seat = new Seat(getResources().getResourceEntryName(view.getId()));
             currentlySelectedSeats.add(seat);
-            Log.i("SeatPickerActivity","Added seat: " + seat.getNumber() + "to current selection, size is now: " + currentlySelectedSeats.size());
+            Log.i("SeatPickerActivity","Added seat: " + seat.getNumber() + " to current selection, size is now: " + currentlySelectedSeats.size());
 
         } else if (imageView.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.cinemaseat_selected).getConstantState())) {
             imageView.setImageDrawable(getResources().getDrawable(R.drawable.cinemaseat_available));
@@ -67,7 +71,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 Seat seat = currentlySelectedSeats.get(i);
                 if (seat.getNumber().equals(seatNumber)) {
                     currentlySelectedSeats.remove(seat);
-                    Log.i("SeatPickerActivity","Removed seat: " + seat.getNumber() + "from current selection, size is now: "+ currentlySelectedSeats.size());
+                    Log.i("SeatPickerActivity","Removed seat: " + seat.getNumber() + " from current selection, size is now: "+ currentlySelectedSeats.size());
                 }
             }
 
@@ -76,6 +80,8 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
         } else {
             Log.i("SeatPickerActivity", "ERROR: Could not get drawable to check!");
         }
+
+        amountOfSeatsTextView.setText("" + currentlySelectedSeats.size());
 
     }
 

@@ -648,20 +648,6 @@
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/seatPicker_button_reserveSeats"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:text="Reserve selected seats"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <TextView
             android:id="@+id/seatPicker_textView_amountOfSeatsLabel"
             android:layout_width="wrap_content"
@@ -682,7 +668,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="[Seats]"
+            android:text="0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_amountOfSeatsLabel"
@@ -857,17 +843,14 @@
             android:id="@+id/seatPicker_seekBar_elder"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/seatPicker_button_reserveSeats"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_textView_elderLabel"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/seatPicker_textView_elderLabel" />
 
         <TextView
             android:id="@+id/seatPicker_textView_totalPriceLabel"
@@ -877,12 +860,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="Total price:"
-            app:layout_constraintBottom_toTopOf="@+id/seatPicker_button_reserveSeats"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_seekBar_elder" />
+            app:layout_constraintTop_toBottomOf="@+id/divider5" />
 
         <View
-            android:id="@+id/divider4"
+            android:id="@+id/divider5"
             android:layout_width="368dp"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
@@ -893,18 +875,32 @@
             app:layout_constraintTop_toBottomOf="@+id/seatPicker_seekBar_elder" />
 
         <TextView
-            android:id="@+id/seatPicker_textView_totalPrice"
+            android:id="@+id/seatPicker_textView_totalPriceAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginRight="16dp"
             android:layout_marginStart="8dp"
             android:text="[Price]"
+            app:layout_constraintBottom_toBottomOf="@+id/seatPicker_textView_totalPriceLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_totalPriceLabel"
             app:layout_constraintTop_toTopOf="@+id/seatPicker_textView_totalPriceLabel" />
+
+        <Button
+            android:id="@+id/seatPicker_button_buyTickets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Buy tickets"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seatPicker_textView_totalPriceLabel" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
