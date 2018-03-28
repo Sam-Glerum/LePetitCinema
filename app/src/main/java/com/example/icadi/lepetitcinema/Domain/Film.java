@@ -1,10 +1,12 @@
 package com.example.icadi.lepetitcinema.Domain;
 
+import java.io.Serializable;
+
 /**
  * Created by icadi on 27-3-18.
  */
 
-public class Film {
+public class Film implements Serializable{
     private String name;
     private String description;
     private int duration;
