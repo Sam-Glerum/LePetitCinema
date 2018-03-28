@@ -1,10 +1,12 @@
 package com.example.icadi.lepetitcinema.Domain;
 
+import java.io.Serializable;
+
 /**
  * Created by icadi on 27-3-18.
  */
 
-public class Seat {
+public class Seat implements Serializable{
     private String number;
     private boolean isOccupied;
 
