@@ -71,7 +71,6 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
 
     @Override
     public void onClick(View view) {
-        Intent toSuccessPayment = new Intent(getApplicationContext(), SuccessPaymentActivity.class);
-        startActivity(toSuccessPayment);
+        startActivity(new Intent(getApplicationContext(), SuccessPaymentActivity.class));
     }
 }
