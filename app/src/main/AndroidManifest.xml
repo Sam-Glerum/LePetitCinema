@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Presentation.ContactActivity"></activity>
+        <activity android:name="com.example.icadi.lepetitcinema.Presentation.FilmDetailActivity"></activity>
     </application>
 
 </manifest>
