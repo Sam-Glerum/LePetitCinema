@@ -67,11 +67,11 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
         switch (view.getId()) {
             case R.id.seatPicker_button_buyTickets:
-                Intent toPayment = new Intent(getApplicationContext(), PaymentSimulationActivity.class);
-                toPayment.putExtra(SEATS, currentlySelectedSeats);
+//                Intent toPayment = new Intent(getApplicationContext(), PaymentSimulationActivity.class);
+//                toPayment.putExtra(SEATS, currentlySelectedSeats);
 //                toPayment.putExtra(FILMTITLE, idk)
 //                toPayment.putExtra(PRICE, price);
-                toPayment.putExtra(AMOUNTOFTICKETS, currentlySelectedSeats.size());
+//                toPayment.putExtra(AMOUNTOFTICKETS, currentlySelectedSeats.size());
                 break;
 
             default:
