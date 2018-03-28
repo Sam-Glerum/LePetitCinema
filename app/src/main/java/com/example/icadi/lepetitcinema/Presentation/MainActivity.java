@@ -76,10 +76,24 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
                 // set item as selected to persist highlight
                 menuItem.setChecked(true);
-                // open the contact page when the contact item is selected
-                startActivity(new Intent(getApplicationContext(), ContactActivity.class));
+
+                switch (menuItem.getItemId()) {
+
+                    case R.id.etickets:
+                        // Open the E-Ticket page.
+                        startActivity(new Intent(getApplicationContext(), ETicketsActivity.class));
+                        break;
+
+                    case R.id.contact:
+                        // open the contact page when the contact item is selected
+//                        startActivity(new Intent(getApplicationContext(), ContactActivity.class));
+                        break;
+
+                }
+
                 // close the drawer after the contact item is selected
                 mDrawerLayout.closeDrawers();
                 return true;
