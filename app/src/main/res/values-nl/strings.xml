@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Sunday">zondag:     12:00 tot 17:00</string>
+    <string name="Saturday">zaterdag:     09:30 tot 22:30</string>
+    <string name="Wednesday">woensdag:     09:30 tot 21:30</string>
+    <string name="Friday">vrijdag:     09:30 tot 21:30</string>
+    <string name="OpeningHours">Openingstijden</string>
+    <string name="Monday">maandag:      gesloten</string>
+    <string name="Thursday">donderdag:     09:30 tot 21:30</string>
+    <string name="Tuesday">dinsdag:     09:30 tot 21:30</string>
+</resources>
