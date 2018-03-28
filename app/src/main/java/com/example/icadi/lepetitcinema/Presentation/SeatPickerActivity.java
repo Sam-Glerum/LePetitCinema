@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +28,15 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
     private TextView amountOfSeatsTextView;
     private Button buyTicketButton;
 
+    private ImageButton childDecreaseButton;
+    private ImageButton childIncreaseButton;
+
+    private ImageButton normalDecreaseButton;
+    private ImageButton normalIncreaseButton;
+
+    private ImageButton elderDecreaseButton;
+    private ImageButton elderIncreaseButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +55,21 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
         buyTicketButton = findViewById(R.id.seatPicker_button_buyTickets);
         buyTicketButton.setOnClickListener(this);
+
+        childDecreaseButton = findViewById(R.id.seatPicker_button_childDecrease);
+        childDecreaseButton.setOnClickListener(this);
+        childIncreaseButton = findViewById(R.id.seatPicker_button_childIncrease);
+        childIncreaseButton.setOnClickListener(this);
+
+        normalDecreaseButton = findViewById(R.id.seatPicker_button_normalDecrease);
+        normalDecreaseButton.setOnClickListener(this);
+        normalIncreaseButton = findViewById(R.id.seatPicker_button_normalIncrease);
+        normalIncreaseButton.setOnClickListener(this);
+
+        elderDecreaseButton = findViewById(R.id.seatPicker_button_elderDecrease);
+        elderDecreaseButton.setOnClickListener(this);
+        elderIncreaseButton = findViewById(R.id.seatPicker_button_elderIncrease);
+        elderIncreaseButton.setOnClickListener(this);
     }
 
     /**
