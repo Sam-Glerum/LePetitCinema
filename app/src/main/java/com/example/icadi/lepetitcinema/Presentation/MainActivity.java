@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.contact :
                         // open the contact page when the contact item is selected
-//                        startActivity(new Intent(getApplicationContext(), ContactActivity.class));
+                        startActivity(new Intent(getApplicationContext(), ContactActivity.class));
                 }
                 // close the drawer after the contact item is selected
                 mDrawerLayout.closeDrawers();
