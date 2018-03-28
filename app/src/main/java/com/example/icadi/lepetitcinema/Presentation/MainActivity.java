@@ -20,6 +20,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static String FILM = "FILM";
+
     private DrawerLayout mDrawerLayout;
 
     private ListView listView;
@@ -68,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), FilmDetailActivity.class);
-                intent.putExtra("Film", films.get(i));
+                intent.putExtra(FILM, films.get(i));
                 startActivity(intent);
             }
         });
