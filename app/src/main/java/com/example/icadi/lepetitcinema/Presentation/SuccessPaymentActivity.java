@@ -23,7 +23,6 @@ public class SuccessPaymentActivity extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View view) {
-        Intent toHomeScreen = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(toHomeScreen);
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
 }
