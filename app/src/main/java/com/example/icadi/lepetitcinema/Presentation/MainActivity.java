@@ -1,18 +1,17 @@
 package com.example.icadi.lepetitcinema.Presentation;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toolbar;
 
 import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.R;
@@ -84,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.contact :
                         // open the contact page when the contact item is selected
-//                        startActivity(new Intent(getApplicationContext(), ContactActivity.class));
+                        startActivity(new Intent(getApplicationContext(), ContactActivity.class));
                 }
                 // close the drawer after the contact item is selected
                 mDrawerLayout.closeDrawers();

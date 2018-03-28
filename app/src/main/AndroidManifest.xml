@@ -21,6 +21,7 @@
         <activity android:name=".Presentation.SuccessPaymentActivity"></activity>
         <activity android:name=".Presentation.FilmDetailActivity"/>
         <activity android:name=".Presentation.SeatPickerActivity"></activity>
+        <activity android:name=".Presentation.ContactActivity"></activity>
     </application>
 
 </manifest>
