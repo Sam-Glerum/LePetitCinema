@@ -5,19 +5,19 @@ package com.example.icadi.lepetitcinema.Domain;
  */
 
 public class Seat {
-    private int number;
+    private String number;
     private boolean isOccupied;
 
-    public Seat(int number) {
+    public Seat(String number) {
         this.number = number;
         isOccupied = false;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 

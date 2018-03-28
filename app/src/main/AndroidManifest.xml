@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".Presentation.MainActivity">
+        <!--<activity android:name=".Presentation.SeatPickerActivity">-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,6 +20,7 @@
         <activity android:name=".Presentation.PaymentSimulationActivity" />
         <activity android:name=".Presentation.SuccessPaymentActivity"></activity>
         <activity android:name=".Presentation.FilmDetailActivity"/>
+        <activity android:name=".Presentation.SeatPickerActivity"></activity>
     </application>
 
 </manifest>
