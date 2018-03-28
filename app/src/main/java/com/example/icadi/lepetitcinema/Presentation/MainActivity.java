@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
+
+        // Fill arraylist with testdata
         films = new ArrayList<Film>();
         films.add(new Film("Film 1", "Film beschrijving", 120));
         films.add(new Film("Film 2", "Film beschrijving", 120));
@@ -57,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
         films.add(new Film("Film 8", "Film beschrijving", 120));
         films.add(new Film("Film 9", "Film beschrijving", 120));
 
+        // Initalize the filmAdapter
         filmAdapter = new FilmAdapter(getApplicationContext(), getLayoutInflater(), films);
+        // Link the filmAdapter to the listView
         listView.setAdapter(filmAdapter);
 
         // Set an onItemClickListener, which directs the user to the DetailActivity Page of the Film
@@ -76,7 +80,13 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 // set item as selected to persist highlight
                 menuItem.setChecked(true);
-                // close drawer when item is tapped
+                System.out.println("Item" + menuItem.getItemId());
+                switch (menuItem.getItemId()) {
+                    case R.id.contact :
+                        // open the contact page when the contact item is selected
+                        startActivity(new Intent(getApplicationContext(), ContactActivity.class));
+                }
+                // close the drawer after the contact item is selected
                 mDrawerLayout.closeDrawers();
                 return true;
             }
@@ -87,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case android.R.id.home:
+                // Open the drawer when the hamburger-menu is tapped
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 return true;
         }
