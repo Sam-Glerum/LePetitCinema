@@ -1,4 +1,8 @@
 <resources>
+    <string name="app_name">LePetitCinema</string>
+    <string name="payTicketButton">Order ticket</string>
+    <string name="paymentSuccess">Payment Success!</string>
+    <string name="backToHomeButton">Back to home</string>
     <string name="app_name" translatable="false">LePetitCinema</string>
     <string name="Address" translatable="false">Van Coothplein 17b, 4811 NC BREDA</string>
     <string name="OpeningHours">Openingstijden</string>
