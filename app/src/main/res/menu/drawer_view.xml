@@ -3,13 +3,6 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/contact"
-            android:title="contact" />
-        <item
-            android:id="@+id/inloggen"
-            android:title="inloggen" />
-        <item
-            android:id="@+id/registreren"
-            android:title="registreren" />
-
+            android:title="Contact" />
     </group>
 </menu>
