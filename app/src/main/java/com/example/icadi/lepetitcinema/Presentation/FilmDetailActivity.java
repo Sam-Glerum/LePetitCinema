@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.R;
@@ -13,6 +14,10 @@ import static com.example.icadi.lepetitcinema.Presentation.SeatPickerActivity.FI
 
 public class FilmDetailActivity extends AppCompatActivity implements View.OnClickListener {
     private Film film;
+
+    private TextView filmTitle;
+    private TextView filmDescription;
+
     private Button buyTicketsButton;
 
     @Override
@@ -20,9 +25,26 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_film_detail);
 
-        film = (Film) getIntent().getSerializableExtra("Film");
+        setObjectVariables();
+        
+        film = (Film) getIntent().getSerializableExtra(MainActivity.FILM);
+
+        setObjectVariablesContent();
         buyTicketsButton = (Button)findViewById(R.id.filmDetail_button_buyTickets);
         buyTicketsButton.setOnClickListener(this);
+    }
+
+    /**
+     * This method sets the object variables with the matching view components.
+     */
+    private void setObjectVariables() {
+        filmTitle = findViewById(R.id.film_detail_title);
+        filmDescription = findViewById(R.id.film_detail_textView_description);
+    }
+
+    private void setObjectVariablesContent() {
+        filmTitle.setText(film.getName());
+        filmDescription.setText(film.getDescription());
     }
 
     @Override
