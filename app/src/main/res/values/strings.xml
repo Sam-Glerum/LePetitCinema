@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">LePetitCinema</string>
+    <string name="payTicketButton">Order ticket</string>
+    <string name="paymentSuccess">Payment Success!</string>
+    <string name="backToHomeButton">Back to home</string>
+    <string name="app_name" translatable="false">LePetitCinema</string>
+    <string name="Address" translatable="false">Van Coothplein 17b, 4811 NC BREDA</string>
+    <string name="OpeningHours">Openingstijden</string>
+    <string name="Monday">maandag:      gesloten</string>
+    <string name="Tuesday">dinsdag:     09:30 tot 21:30</string>
+    <string name="Wednesday">woensdag:     09:30 tot 21:30</string>
+    <string name="Thursday">donderdag:     09:30 tot 21:30</string>
+    <string name="Friday">vrijdag:     09:30 tot 21:30</string>
+    <string name="Sunday">zondag:     12:00 tot 17:00</string>
+    <string name="TelephoneNumber" translatable="false">+31 76 562 3773</string>
+    <string name="Emailaddress" translatable="false">events@lepetitcinema.nl</string>
+    <string name="Saturday">zaterdag:     09:30 tot 22:30</string>
+    <string name="menuItemETicket">Tickets</string>
+    <string name="ticketString">Ticket</string>
 </resources>
