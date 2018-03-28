@@ -29,7 +29,6 @@
         android:text="@string/Saturday"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/OpeningHours"
         app:layout_constraintVertical_bias="0.582" />
@@ -45,7 +44,6 @@
         android:text="@string/Sunday"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.443"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/OpeningHours"
         app:layout_constraintVertical_bias="0.682" />
@@ -61,7 +59,6 @@
         android:text="@string/Friday"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/OpeningHours"
         app:layout_constraintVertical_bias="0.481" />
@@ -77,7 +74,6 @@
         android:text="@string/Thursday"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/OpeningHours"
         app:layout_constraintVertical_bias="0.38" />
@@ -93,7 +89,6 @@
         android:text="@string/Monday"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.389"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/OpeningHours"
         app:layout_constraintVertical_bias="0.089" />
@@ -109,7 +104,6 @@
         android:text="@string/Wednesday"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/OpeningHours"
         app:layout_constraintVertical_bias="0.275" />
@@ -224,7 +218,6 @@
         android:text="@string/Tuesday"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/OpeningHours"
         app:layout_constraintVertical_bias="0.188" />
