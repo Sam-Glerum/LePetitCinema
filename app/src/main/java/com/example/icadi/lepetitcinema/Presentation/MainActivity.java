@@ -59,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
         films.add(new Film("Film 8", "Film beschrijving", 120));
         films.add(new Film("Film 9", "Film beschrijving", 120));
 
+        // Initalize the filmAdapter
         filmAdapter = new FilmAdapter(getApplicationContext(), getLayoutInflater(), films);
+        // Link the filmAdapter to the listView
         listView.setAdapter(filmAdapter);
 
         // Set an onItemClickListener, which directs the user to the DetailActivity Page of the Film
@@ -78,8 +80,12 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 // set item as selected to persist highlight
                 menuItem.setChecked(true);
-                // open the contact page when the contact item is selected
-                startActivity(new Intent(getApplicationContext(), ContactActivity.class));
+                System.out.println("Item" + menuItem.getItemId());
+                switch (menuItem.getItemId()) {
+                    case R.id.contact :
+                        // open the contact page when the contact item is selected
+                        startActivity(new Intent(getApplicationContext(), ContactActivity.class));
+                }
                 // close the drawer after the contact item is selected
                 mDrawerLayout.closeDrawers();
                 return true;
