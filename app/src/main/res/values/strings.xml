@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">LePetitCinema</string>
     <string name="menuItemETicket">Tickets</string>
+    <string name="ticketString">Ticket</string>
 </resources>
