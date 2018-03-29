@@ -50,10 +50,13 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
     private double childPrice;
 
     private int normalAmount;
-    private int normalPrice;
+    private double normalPrice;
 
     private int elderAmount;
-    private int elderPrice;
+    private double elderPrice;
+
+    private double totalPrice;
+    private TextView totalPriceTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +100,8 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
         elderAmountTextView = findViewById(R.id.seatPicker_textView_elderAmount);
         elderPriceTextView = findViewById(R.id.seatPicker_textView_elderPrice);
+
+        totalPriceTextView = findViewById(R.id.seatPicker_textView_totalPriceAmount);
     }
 
     /**
@@ -139,14 +144,18 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 }
 
                 childAmountTextView.setText("" + childAmount);
-                childPriceTextView.setText("" + (childAmount * 5.00) + " euro");
+
+                childPrice = childAmount * 5.00;
+                childPriceTextView.setText("" + (childPrice) + " euro");
                 break;
 
             case R.id.seatPicker_button_childIncrease:
                 childAmount++;
 
                 childAmountTextView.setText("" + childAmount);
-                childPriceTextView.setText("" + (childAmount * 5.00) + " euro");
+
+                childPrice = childAmount * 5.00;
+                childPriceTextView.setText("" + (childPrice) + " euro");
                 break;
 
             case R.id.seatPicker_button_normalDecrease:
@@ -155,14 +164,18 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 }
 
                 normalAmountTextView.setText("" + normalAmount);
-                normalPriceTextView.setText("" + (normalAmount * 10.00) + " euro");
+
+                normalPrice = normalAmount * 10.00;
+                normalPriceTextView.setText("" + (normalPrice) + " euro");
                 break;
 
             case R.id.seatPicker_button_normalIncrease:
                 normalAmount++;
 
                 normalAmountTextView.setText("" + normalAmount);
-                normalPriceTextView.setText("" + (normalAmount * 10.00) + " euro");
+
+                normalPrice = normalAmount * 10.00;
+                normalPriceTextView.setText("" + (normalPrice) + " euro");
                 break;
 
             case R.id.seatPicker_button_elderDecrease:
@@ -171,14 +184,18 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 }
 
                 elderAmountTextView.setText("" + elderAmount);
-                elderPriceTextView.setText("" + (elderAmount * 8.00) + " euro");
+
+                elderPrice = elderAmount * 8.00;
+                elderPriceTextView.setText("" + (elderPrice) + " euro");
                 break;
 
             case R.id.seatPicker_button_elderIncrease:
                 elderAmount++;
 
                 elderAmountTextView.setText("" + elderAmount);
-                elderPriceTextView.setText("" + (elderAmount * 8.00) + " euro");
+
+                elderPrice = elderAmount * 8.00;
+                elderPriceTextView.setText("" + (elderPrice) + " euro");
                 break;
 
 
@@ -209,7 +226,14 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 }
 
                 amountOfSeatsTextView.setText("" + currentlySelectedSeats.size());
+
+
+
         }
+
+        totalPrice = childPrice + normalPrice + elderPrice;
+        totalPriceTextView.setText("" + totalPrice + " euro");
+
     }
 
     public ImageView[][] getSeatImageViews() {
