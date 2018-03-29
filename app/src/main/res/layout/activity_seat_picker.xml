@@ -674,20 +674,6 @@
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_amountOfSeatsLabel"
             app:layout_constraintTop_toBottomOf="@+id/screen" />
 
-        <SeekBar
-            android:id="@+id/seatPicker_seekBar_child"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_textView_childLabel" />
-
         <TextView
             android:id="@+id/seatPicker_textView_childLabel"
             android:layout_width="wrap_content"
@@ -705,7 +691,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:text="[Amount]"
+            android:text="0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_childLabel"
             app:layout_constraintTop_toTopOf="@+id/seatPicker_textView_childLabel" />
 
@@ -717,7 +703,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="8dp"
-            android:text="[Price]"
+            android:text="0.0 euro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_childAmount"
@@ -743,7 +729,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_seekBar_child" />
+            app:layout_constraintTop_toBottomOf="@+id/seatPicker_button_childDecrease" />
 
         <TextView
             android:id="@+id/seatPicker_textView_normalLabel"
@@ -762,7 +748,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:text="[Amount]"
+            android:text="0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_normalLabel"
             app:layout_constraintTop_toTopOf="@+id/seatPicker_textView_normalLabel" />
 
@@ -774,24 +760,11 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="8dp"
-            android:text="[Price]"
+            android:text="0.0 euro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_normalAmount"
             app:layout_constraintTop_toTopOf="@+id/seatPicker_textView_normalAmount" />
-
-        <SeekBar
-            android:id="@+id/seatPicker_seekBar_normal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_textView_normalLabel" />
 
         <View
             android:id="@+id/divider3"
@@ -802,7 +775,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_seekBar_normal" />
+            app:layout_constraintTop_toBottomOf="@+id/seatPicker_button_normalDecrease" />
 
         <TextView
             android:id="@+id/seatPicker_textView_elderLabel"
@@ -821,7 +794,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:text="[Amount]"
+            android:text="0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_elderLabel"
             app:layout_constraintTop_toTopOf="@+id/seatPicker_textView_elderLabel" />
 
@@ -833,24 +806,11 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="8dp"
-            android:text="[Price]"
+            android:text="0.0 euro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_elderAmount"
             app:layout_constraintTop_toTopOf="@+id/seatPicker_textView_elderAmount" />
-
-        <SeekBar
-            android:id="@+id/seatPicker_seekBar_elder"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_textView_elderLabel" />
 
         <TextView
             android:id="@+id/seatPicker_textView_totalPriceLabel"
@@ -872,7 +832,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seatPicker_seekBar_elder" />
+            app:layout_constraintTop_toBottomOf="@+id/seatPicker_button_elderDecrease" />
 
         <TextView
             android:id="@+id/seatPicker_textView_totalPriceAmount"
@@ -882,7 +842,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="8dp"
-            android:text="[Price]"
+            android:text="0.0 euro"
             app:layout_constraintBottom_toBottomOf="@+id/seatPicker_textView_totalPriceLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -901,6 +861,84 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/seatPicker_textView_totalPriceLabel" />
+
+        <ImageButton
+            android:id="@+id/seatPicker_button_childDecrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seatPicker_textView_childLabel"
+            app:srcCompat="@drawable/ic_chevron_left_black" />
+
+        <ImageButton
+            android:id="@+id/seatPicker_button_childIncrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/seatPicker_button_childDecrease"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/seatPicker_button_childDecrease"
+            app:layout_constraintTop_toTopOf="@+id/seatPicker_button_childDecrease"
+            app:srcCompat="@drawable/ic_chevron_right_black" />
+
+        <ImageButton
+            android:id="@+id/seatPicker_button_normalDecrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seatPicker_textView_normalLabel"
+            app:srcCompat="@drawable/ic_chevron_left_black" />
+
+        <ImageButton
+            android:id="@+id/seatPicker_button_normalIncrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/seatPicker_button_normalDecrease"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/seatPicker_button_normalDecrease"
+            app:layout_constraintTop_toTopOf="@+id/seatPicker_button_normalDecrease"
+            app:srcCompat="@drawable/ic_chevron_right_black" />
+
+        <ImageButton
+            android:id="@+id/seatPicker_button_elderDecrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seatPicker_textView_elderLabel"
+            app:srcCompat="@drawable/ic_chevron_left_black" />
+
+        <ImageButton
+            android:id="@+id/seatPicker_button_elderIncrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/seatPicker_button_elderDecrease"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/seatPicker_button_elderDecrease"
+            app:layout_constraintTop_toTopOf="@+id/seatPicker_button_elderDecrease"
+            app:srcCompat="@drawable/ic_chevron_right_black" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
