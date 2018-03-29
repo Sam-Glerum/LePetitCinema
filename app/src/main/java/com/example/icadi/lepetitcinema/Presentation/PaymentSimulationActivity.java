@@ -64,7 +64,7 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
         intent = getIntent();
 
         filmTitle.setText(intent.getStringExtra(SeatPickerActivity.FILMTITLE));
-        amountOfTickets.setText("Amount of tickets: " + intent.getStringExtra(SeatPickerActivity.AMOUNTOFTICKETS));
+        amountOfTickets.setText(getString(R.string.paymentSimulationAmountTickets) + " " + intent.getStringExtra(SeatPickerActivity.AMOUNTOFTICKETS));
         ArrayList<Seat> selectedSeats = (ArrayList<Seat>) intent.getSerializableExtra(SeatPickerActivity.SEATS);
 
         String seatNumbers = "";
@@ -78,7 +78,7 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
             }
         }
 
-        seatNumber.setText("Seats: " + seatNumbers);
+        seatNumber.setText(getString(R.string.paymentSimulationSeats) + " " + seatNumbers);
         price.setText("€ " + intent.getDoubleExtra(SeatPickerActivity.PRICE, 0.0));
 
         payTicketButton.setOnClickListener(this);
