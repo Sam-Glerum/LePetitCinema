@@ -132,7 +132,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 Intent toPayment = new Intent(getApplicationContext(), PaymentSimulationActivity.class);
                 toPayment.putExtra(SEATS, currentlySelectedSeats);
 //                toPayment.putExtra(FILMTITLE, idk);
-//                toPayment.putExtra(PRICE, price);
+//                toPayment.putExtra(PRICE, totalPrice);
                 toPayment.putExtra(AMOUNTOFTICKETS, "" + currentlySelectedSeats.size());
 
                 startActivity(toPayment);
