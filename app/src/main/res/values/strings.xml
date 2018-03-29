@@ -16,6 +16,6 @@
     <string name="Saturday">zaterdag:     09:30 tot 22:30</string>
     <string name="menuItemETicket">Tickets</string>
     <string name="ticketString">Ticket</string>
-    <string name="paymentSimulationAmountTickets">Amount of tickets: </string>
-    <string name="paymentSimulationSeats">Seats: </string>
+    <string name="paymentSimulationAmountTickets">Amount of tickets:\u0020</string>
+    <string name="paymentSimulationSeats">Seats:\u0020</string>
 </resources>
