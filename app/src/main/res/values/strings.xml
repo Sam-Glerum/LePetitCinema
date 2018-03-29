@@ -2,7 +2,7 @@
     <string name="payTicketButton">Order ticket</string>
     <string name="paymentSuccess">Payment Success!</string>
     <string name="backToHomeButton">Back to home</string>
-    <string name="app_name" translatable="false">LePetitCinema</string>
+    <string name="app_name" translatable="false">Le Petit Cinéma</string>
     <string name="Address" translatable="false">Van Coothplein 17b, 4811 NC BREDA</string>
     <string name="OpeningHours">Openingstijden</string>
     <string name="Monday">maandag:      gesloten</string>
@@ -16,4 +16,6 @@
     <string name="Saturday">zaterdag:     09:30 tot 22:30</string>
     <string name="menuItemETicket">Tickets</string>
     <string name="ticketString">Ticket</string>
+    <string name="paymentSimulationAmountTickets">Amount of tickets:\u0020</string>
+    <string name="paymentSimulationSeats">Seats:\u0020</string>
 </resources>

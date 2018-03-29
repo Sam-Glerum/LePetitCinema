@@ -52,7 +52,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
         switch (view.getId()) {
             case R.id.filmDetail_button_buyTickets:
                 Intent toSeatPicker = new Intent(getApplicationContext(), SeatPickerActivity.class);
-                toSeatPicker.putExtra(FILMTITLE, film.getName());
+                toSeatPicker.putExtra(SeatPickerActivity.FILMTITLE, film.getName());
                 startActivity(toSeatPicker);
                 break;
 

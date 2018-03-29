@@ -58,16 +58,15 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
      * This method sets the content of the view components.
      * This is done by getting the setText() method for every object variable.
      */
+    @SuppressWarnings("unchecked")
     private void setViewComponentContent() {
         Log.d("PaySimulationActivity", "setViewComponentContent: inside method");
 
         intent = getIntent();
 
-//        filmTitle.setText(intent.getStringExtra(SeatPickerActivity.FILMTITLE));
-        filmTitle.setText("Jumanji");
-        amountOfTickets.setText("Amount of tickets: " + intent.getStringExtra(SeatPickerActivity.AMOUNTOFTICKETS));
-//        cinemaRoom.setText(intent.getStringExtra("NaN"));
+        filmTitle.setText(intent.getStringExtra(SeatPickerActivity.FILMTITLE));
 
+        amountOfTickets.setText(getString(R.string.paymentSimulationAmountTickets) + intent.getStringExtra(SeatPickerActivity.AMOUNTOFTICKETS));
         ArrayList<Seat> selectedSeats = (ArrayList<Seat>) intent.getSerializableExtra(SeatPickerActivity.SEATS);
 
         String seatNumbers = "";
@@ -81,9 +80,8 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
             }
         }
 
-        seatNumber.setText("Seats: " + seatNumbers);
-
-//        price.setText(intent.getStringExtra("price"));
+        seatNumber.setText(getString(R.string.paymentSimulationSeats) + " " + seatNumbers);
+        price.setText("€ " + intent.getDoubleExtra(SeatPickerActivity.PRICE, 0.0));
 
         payTicketButton.setOnClickListener(this);
     }
