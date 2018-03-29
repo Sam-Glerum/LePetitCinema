@@ -37,6 +37,24 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
     private ImageButton elderDecreaseButton;
     private ImageButton elderIncreaseButton;
 
+    private TextView childAmountTextView;
+    private TextView childPriceTextView;
+
+    private TextView normalAmountTextView;
+    private TextView normalPriceTextView;
+
+    private TextView elderAmountTextView;
+    private TextView elderPriceTextView;
+
+    private int childAmount;
+    private double childPrice;
+
+    private int normalAmount;
+    private int normalPrice;
+
+    private int elderAmount;
+    private int elderPrice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +88,15 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
         elderDecreaseButton.setOnClickListener(this);
         elderIncreaseButton = findViewById(R.id.seatPicker_button_elderIncrease);
         elderIncreaseButton.setOnClickListener(this);
+
+        childAmountTextView = findViewById(R.id.seatPicker_textView_childAmount);
+        childPriceTextView = findViewById(R.id.seatPicker_textView_childPrice);
+
+        normalAmountTextView = findViewById(R.id.seatPicker_textView_normalAmount);
+        normalPriceTextView = findViewById(R.id.seatPicker_textView_normalPrice);
+
+        elderAmountTextView = findViewById(R.id.seatPicker_textView_elderAmount);
+        elderPriceTextView = findViewById(R.id.seatPicker_textView_elderPrice);
     }
 
     /**
@@ -107,22 +134,51 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.seatPicker_button_childDecrease:
-                // TODO: Create methods for increase and decrease buttons
+                if (childAmount > 0) {
+                    childAmount--;
+                }
+
+                childAmountTextView.setText("" + childAmount);
+                childPriceTextView.setText("" + (childAmount * 5.00) + " euro");
                 break;
 
             case R.id.seatPicker_button_childIncrease:
+                childAmount++;
+
+                childAmountTextView.setText("" + childAmount);
+                childPriceTextView.setText("" + (childAmount * 5.00) + " euro");
                 break;
 
             case R.id.seatPicker_button_normalDecrease:
+                if (normalAmount > 0) {
+                    normalAmount--;
+                }
+
+                normalAmountTextView.setText("" + normalAmount);
+                normalPriceTextView.setText("" + (normalAmount * 10.00) + " euro");
                 break;
 
             case R.id.seatPicker_button_normalIncrease:
+                normalAmount++;
+
+                normalAmountTextView.setText("" + normalAmount);
+                normalPriceTextView.setText("" + (normalAmount * 10.00) + " euro");
                 break;
 
             case R.id.seatPicker_button_elderDecrease:
+                if (elderAmount > 0) {
+                    elderAmount--;
+                }
+
+                elderAmountTextView.setText("" + elderAmount);
+                elderPriceTextView.setText("" + (elderAmount * 8.00) + " euro");
                 break;
 
             case R.id.seatPicker_button_elderIncrease:
+                elderAmount++;
+
+                elderAmountTextView.setText("" + elderAmount);
+                elderPriceTextView.setText("" + (elderAmount * 8.00) + " euro");
                 break;
 
 

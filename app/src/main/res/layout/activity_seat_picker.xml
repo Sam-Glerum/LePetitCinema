@@ -691,7 +691,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:text="[Amount]"
+            android:text="0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_childLabel"
             app:layout_constraintTop_toTopOf="@+id/seatPicker_textView_childLabel" />
 
@@ -703,7 +703,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="8dp"
-            android:text="[Price]"
+            android:text="0.0 euro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_childAmount"
@@ -748,7 +748,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:text="[Amount]"
+            android:text="0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_normalLabel"
             app:layout_constraintTop_toTopOf="@+id/seatPicker_textView_normalLabel" />
 
@@ -760,7 +760,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="8dp"
-            android:text="[Price]"
+            android:text="0.0 euro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_normalAmount"
@@ -794,7 +794,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:text="[Amount]"
+            android:text="0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_elderLabel"
             app:layout_constraintTop_toTopOf="@+id/seatPicker_textView_elderLabel" />
 
@@ -806,7 +806,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="8dp"
-            android:text="[Price]"
+            android:text="0.0 euro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_elderAmount"
@@ -842,7 +842,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="8dp"
-            android:text="[Price]"
+            android:text="0.0 euro"
             app:layout_constraintBottom_toBottomOf="@+id/seatPicker_textView_totalPriceLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
