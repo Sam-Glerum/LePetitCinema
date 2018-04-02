@@ -1,6 +1,7 @@
 package com.example.icadi.lepetitcinema.Presentation;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +19,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
     private TextView filmTitle;
     private TextView filmDescription;
 
-    private Button buyTicketsButton;
+    private FloatingActionButton buyTicketsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,8 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
         film = (Film) getIntent().getSerializableExtra(MainActivity.FILM);
 
         setObjectVariablesContent();
-        buyTicketsButton = (Button)findViewById(R.id.filmDetail_button_buyTickets);
+
+        // Set the on click listener of the order FAB.
         buyTicketsButton.setOnClickListener(this);
     }
 
@@ -38,10 +40,14 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
      * This method sets the object variables with the matching view components.
      */
     private void setObjectVariables() {
-        filmTitle = findViewById(R.id.film_detail_title);
-        filmDescription = findViewById(R.id.film_detail_textView_description);
+        filmTitle = findViewById(R.id.detail_activity_film_title);
+        filmDescription = findViewById(R.id.detail_activity_film_description);
+        buyTicketsButton = findViewById(R.id.detail_activity_order_ticket_fab);
     }
 
+    /**
+     * This method sets the content of the object variables.
+     */
     private void setObjectVariablesContent() {
         filmTitle.setText(film.getName());
         filmDescription.setText(film.getDescription());
@@ -50,13 +56,13 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.filmDetail_button_buyTickets:
+            case R.id.detail_activity_order_ticket_fab:
                 Intent toSeatPicker = new Intent(getApplicationContext(), SeatPickerActivity.class);
                 toSeatPicker.putExtra(SeatPickerActivity.FILMTITLE, film.getName());
                 startActivity(toSeatPicker);
                 break;
 
-            case R.id.filmdetail_button_writeReview:
+            case R.id.detail_activity_review_fab:
                 break;
         }
     }
