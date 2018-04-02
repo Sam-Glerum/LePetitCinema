@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
+import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.Domain.Seat;
 import com.example.icadi.lepetitcinema.R;
 
@@ -45,13 +47,13 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
     private void setObjectVariables() {
         Log.d("PaySimulationActivity", "setObjectVariables: inside method");
 
-        filmImage = findViewById(R.id.filmImage);
-        filmTitle = findViewById(R.id.filmTitle);
-        amountOfTickets = findViewById(R.id.amountOfTickets);
-        cinemaRoom = findViewById(R.id.cinemaRoom);
-        seatNumber = findViewById(R.id.seatNumber);
-        price = findViewById(R.id.price);
-        payTicketButton = findViewById(R.id.payTicketButton);
+        filmImage = findViewById(R.id.payment_simulation_activity_film_image);
+        filmTitle = findViewById(R.id.payment_simulation_activity_film_title);
+        amountOfTickets = findViewById(R.id.payment_simulation_activity_amount_of_tickets);
+        cinemaRoom = findViewById(R.id.payment_simulation_activity_cinema_room);
+        seatNumber = findViewById(R.id.payment_simulation_activity_seat_numbers);
+        price = findViewById(R.id.payment_simulation_activity_price);
+        payTicketButton = findViewById(R.id.payment_simulation_activity_pay_ticket_button);
     }
 
     /**
@@ -63,6 +65,8 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
         Log.d("PaySimulationActivity", "setViewComponentContent: inside method");
 
         intent = getIntent();
+
+        new ImageManager(filmImage).execute(intent.getStringExtra(SeatPickerActivity.FILM_IMAGE));
 
         filmTitle.setText(intent.getStringExtra(SeatPickerActivity.FILMTITLE));
 
