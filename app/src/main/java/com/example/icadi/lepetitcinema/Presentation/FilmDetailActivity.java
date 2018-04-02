@@ -45,7 +45,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
         filmTitle = findViewById(R.id.detail_activity_film_title);
         filmDescription = findViewById(R.id.detail_activity_film_description);
         buyTicketsButton = findViewById(R.id.detail_activity_order_ticket_fab);
-        filmBackgroundImage = (ImageView) findViewById(R.id.filmDetail_imageView_film);
+        filmBackgroundImage = findViewById(R.id.detail_activity_film_image);
     }
 
     /**
