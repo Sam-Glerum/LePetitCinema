@@ -2,16 +2,17 @@ package com.example.icadi.lepetitcinema.Presentation;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
 import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.R;
-
-import static com.example.icadi.lepetitcinema.Presentation.SeatPickerActivity.FILMTITLE;
 
 public class FilmDetailActivity extends AppCompatActivity implements View.OnClickListener {
     private Film film;
@@ -20,6 +21,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
     private TextView filmDescription;
 
     private FloatingActionButton buyTicketsButton;
+    private ImageView filmBackgroundImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
         filmTitle = findViewById(R.id.detail_activity_film_title);
         filmDescription = findViewById(R.id.detail_activity_film_description);
         buyTicketsButton = findViewById(R.id.detail_activity_order_ticket_fab);
+        filmBackgroundImage = (ImageView) findViewById(R.id.filmDetail_imageView_film);
     }
 
     /**
@@ -51,6 +54,9 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
     private void setObjectVariablesContent() {
         filmTitle.setText(film.getName());
         filmDescription.setText(film.getDescription());
+        new ImageManager(filmBackgroundImage).execute(film.getBackgroundImageUrl());
+        filmBackgroundImage.setImageURI(Uri.parse(film.getBackgroundImageUrl()));
+
     }
 
     @Override

@@ -8,17 +8,19 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.icadi.lepetitcinema.ApplicationLogic.APIManager;
 import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.R;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements APIManager.OnFilmAvailable {
 
     public static String FILM = "FILM";
 
@@ -47,19 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
-
         // Fill arraylist with testdata
         films = new ArrayList<Film>();
-        films.add(new Film("Film 1", "Film beschrijving", 120));
-        films.add(new Film("Film 2", "Film beschrijving", 120));
-        films.add(new Film("Film 3", "Film beschrijving", 120));
-        films.add(new Film("Film 4", "Film beschrijving", 120));
-        films.add(new Film("Film 5", "Film beschrijving", 120));
-        films.add(new Film("Film 6", "Film beschrijving", 120));
-        films.add(new Film("Film 7", "Film beschrijving", 120));
-        films.add(new Film("Film 8", "Film beschrijving", 120));
-        films.add(new Film("Film 9", "Film beschrijving", 120));
-
         // Initalize the filmAdapter
         filmAdapter = new FilmAdapter(getApplicationContext(), getLayoutInflater(), films);
         // Link the filmAdapter to the listView
@@ -74,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        String[] urls = new String[]{"https://api.themoviedb.org/3/discover/movie?api_key=21900c2d8963dfde03c91e3bddc6009b"};
+        APIManager apiManager = new APIManager(this);
+        apiManager.execute(urls);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -113,5 +108,15 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(menuItem);
+    }
+
+
+    @Override
+    public void onFilmAvailable(Film film) {
+        if (!films.contains(film)) {
+            films.add(film);
+            Log.i("MainActivity", "Film added (" + film.toString() + ")");
+            filmAdapter.notifyDataSetChanged();
+        }
     }
 }
