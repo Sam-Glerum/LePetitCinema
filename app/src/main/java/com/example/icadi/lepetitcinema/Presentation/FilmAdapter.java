@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
 import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.R;
 
@@ -82,8 +82,9 @@ public class FilmAdapter extends BaseAdapter {
         viewHolder.filmTitle.setText(film.getName());
         Log.i(TAG, film.getName());
         // Set the image of the film to white
-        viewHolder.filmImage.setImageBitmap(null);
         // TODO: Image ophalen van API en setten als image
+
+        new ImageManager(viewHolder.filmImage).execute(film.getPosterImageUrl());
         return convertView;
     }
 
