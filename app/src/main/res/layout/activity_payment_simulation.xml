@@ -66,7 +66,7 @@
     <ImageView
         android:id="@+id/payment_simulation_activity_film_image"
         android:layout_width="0dp"
-        android:layout_height="188dp"
+        android:layout_height="220dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +85,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="96dp"
         android:text="Title"
-        android:textColor="@color/cardview_light_background"
+        android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/payment_simulation_activity_film_image"
@@ -93,7 +93,7 @@
         app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.73" />
+        app:layout_constraintVertical_bias="0.808" />
 
     <Button
         android:id="@+id/payment_simulation_activity_pay_ticket_button"
