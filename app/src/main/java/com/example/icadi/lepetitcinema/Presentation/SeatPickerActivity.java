@@ -21,6 +21,8 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
     public final static String FILMTITLE = "FILMTITLE";
     public final static String AMOUNTOFTICKETS = "AMOUNTOFTICKETS";
     public final static String PRICE = "PRICE";
+    public final static String FILM_IMAGE = "FILM_IMAGE";
+
 //    public final static String CINEMAROOMNR = "CINEMAROOMNR";
 
     private ImageView[][] seatImageViews;
@@ -134,6 +136,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 toPayment.putExtra(FILMTITLE, getIntent().getStringExtra(FILMTITLE));
                 toPayment.putExtra(PRICE, totalPrice);
                 toPayment.putExtra(AMOUNTOFTICKETS, "" + currentlySelectedSeats.size());
+                toPayment.putExtra(FILM_IMAGE, getIntent().getStringExtra(FILM_IMAGE));
 
                 startActivity(toPayment);
                 break;
