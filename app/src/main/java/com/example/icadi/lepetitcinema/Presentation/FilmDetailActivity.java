@@ -52,11 +52,9 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
      * This method sets the content of the object variables.
      */
     private void setObjectVariablesContent() {
+        new ImageManager(filmBackgroundImage).execute(film.getBackgroundImageUrl());
         filmTitle.setText(film.getName());
         filmDescription.setText(film.getDescription());
-        new ImageManager(filmBackgroundImage).execute(film.getBackgroundImageUrl());
-        filmBackgroundImage.setImageURI(Uri.parse(film.getBackgroundImageUrl()));
-
     }
 
     @Override
@@ -65,6 +63,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
             case R.id.detail_activity_order_ticket_fab:
                 Intent toSeatPicker = new Intent(getApplicationContext(), SeatPickerActivity.class);
                 toSeatPicker.putExtra(SeatPickerActivity.FILMTITLE, film.getName());
+                toSeatPicker.putExtra(SeatPickerActivity.FILM_IMAGE, film.getBackgroundImageUrl());
                 startActivity(toSeatPicker);
                 break;
 
