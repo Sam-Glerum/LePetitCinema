@@ -25,5 +25,5 @@
         <activity android:name=".Presentation.ETicketsActivity" />
         <activity android:name=".Presentation.ETicketDetailActivity"></activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
