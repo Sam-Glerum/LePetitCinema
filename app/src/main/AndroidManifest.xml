@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Presentation.MainActivity">
+        <activity android:name=".Presentation.MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
         <!--<activity android:name=".Presentation.SeatPickerActivity">-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,13 +19,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Presentation.PaymentSimulationActivity" />
-        <activity android:name=".Presentation.SuccessPaymentActivity"></activity>
-        <activity android:name=".Presentation.FilmDetailActivity"/>
-        <activity android:name=".Presentation.SeatPickerActivity"></activity>
-        <activity android:name=".Presentation.ContactActivity"></activity>
-        <activity android:name=".Presentation.ETicketsActivity" />
-        <activity android:name=".Presentation.ETicketDetailActivity"></activity>
+        <activity android:name=".Presentation.PaymentSimulationActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Presentation.SuccessPaymentActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Presentation.FilmDetailActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Presentation.SeatPickerActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Presentation.ContactActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Presentation.ETicketsActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Presentation.ETicketDetailActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
