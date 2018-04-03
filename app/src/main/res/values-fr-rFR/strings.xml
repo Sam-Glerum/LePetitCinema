@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="OpeningHours">Heures d\'ouverture</string>
+    <string name="Monday">lundi:    fermé</string>
+    <string name="Tuesday">mardi:    09:30 à 21:30</string>
+    <string name="Wednesday">mercredi: 09:30 à 21:30</string>
+    <string name="Thursday">jeudi:    09:30 à 21:30</string>
+    <string name="Friday">vendredi:    09:30 à 21:30</string>
+    <string name="Saturday">samedi:    09:30 à 22:30</string>
+    <string name="Sunday">dimanche:    12:00 à 17:00</string>
+</resources>
