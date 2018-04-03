@@ -30,7 +30,10 @@ public class DatabaseCreator extends SQLiteOpenHelper {
                 "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, " +
                 "`name` TEXT NOT NULL, " +
                 "`description` TEXT, " +
-                "`duration` INTEGER )");
+                "`duration` INTEGER, " +
+                "`rating` INTEGER, " +
+                "`posterImageUrl` TEXT, " +
+                "`backgroundImageUrl` TEXT)");
         // Create table User
         sqLiteDatabase.execSQL("CREATE TABLE `User` ( " +
                 "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, " +

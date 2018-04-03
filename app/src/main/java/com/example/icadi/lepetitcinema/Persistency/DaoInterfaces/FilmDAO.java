@@ -9,6 +9,6 @@ import com.example.icadi.lepetitcinema.Domain.Film;
 public interface FilmDAO {
     Film get(int id);
     boolean remove(int id);
-    boolean update(Film film);
+    boolean update(Film film, String databaseField, String updatedValue);
     boolean create(Film film);
 }
