@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
+import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.Domain.Seat;
 import com.example.icadi.lepetitcinema.R;
 
@@ -45,29 +47,30 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
     private void setObjectVariables() {
         Log.d("PaySimulationActivity", "setObjectVariables: inside method");
 
-        filmImage = findViewById(R.id.filmImage);
-        filmTitle = findViewById(R.id.filmTitle);
-        amountOfTickets = findViewById(R.id.amountOfTickets);
-        cinemaRoom = findViewById(R.id.cinemaRoom);
-        seatNumber = findViewById(R.id.seatNumber);
-        price = findViewById(R.id.price);
-        payTicketButton = findViewById(R.id.payTicketButton);
+        filmImage = findViewById(R.id.payment_simulation_activity_film_image);
+        filmTitle = findViewById(R.id.payment_simulation_activity_film_title);
+        amountOfTickets = findViewById(R.id.payment_simulation_activity_amount_of_tickets);
+        cinemaRoom = findViewById(R.id.payment_simulation_activity_cinema_room);
+        seatNumber = findViewById(R.id.payment_simulation_activity_seat_numbers);
+        price = findViewById(R.id.payment_simulation_activity_price);
+        payTicketButton = findViewById(R.id.payment_simulation_activity_pay_ticket_button);
     }
 
     /**
      * This method sets the content of the view components.
      * This is done by getting the setText() method for every object variable.
      */
+    @SuppressWarnings("unchecked")
     private void setViewComponentContent() {
         Log.d("PaySimulationActivity", "setViewComponentContent: inside method");
 
         intent = getIntent();
 
-//        filmTitle.setText(intent.getStringExtra(SeatPickerActivity.FILMTITLE));
-        filmTitle.setText("Jumanji");
-        amountOfTickets.setText("Amount of tickets: " + intent.getStringExtra(SeatPickerActivity.AMOUNTOFTICKETS));
-//        cinemaRoom.setText(intent.getStringExtra("NaN"));
+        new ImageManager(filmImage).execute(intent.getStringExtra(SeatPickerActivity.FILM_IMAGE));
 
+        filmTitle.setText(intent.getStringExtra(SeatPickerActivity.FILMTITLE));
+
+        amountOfTickets.setText(getString(R.string.paymentSimulationAmountTickets) + intent.getStringExtra(SeatPickerActivity.AMOUNTOFTICKETS));
         ArrayList<Seat> selectedSeats = (ArrayList<Seat>) intent.getSerializableExtra(SeatPickerActivity.SEATS);
 
         String seatNumbers = "";
@@ -81,9 +84,8 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
             }
         }
 
-        seatNumber.setText("Seats: " + seatNumbers);
-
-//        price.setText(intent.getStringExtra("price"));
+        seatNumber.setText(getString(R.string.paymentSimulationSeats) + " " + seatNumbers);
+        price.setText("€ " + intent.getDoubleExtra(SeatPickerActivity.PRICE, 0.0));
 
         payTicketButton.setOnClickListener(this);
     }
