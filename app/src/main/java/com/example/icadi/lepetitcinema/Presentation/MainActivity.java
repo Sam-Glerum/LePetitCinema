@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements APIManager.OnFilm
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
-        listView = (ListView) findViewById(R.id.filmList);
+        listView = findViewById(R.id.filmList);
 
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
