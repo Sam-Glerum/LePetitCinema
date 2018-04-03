@@ -160,6 +160,14 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                         } else if (currentAmountOfSeats == 0){
                             alertDialogBuilder.setMessage("There are  no seats selected");
 
+                            alertDialogBuilder.setPositiveButton("Pick my seats for me", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                    dialogInterface.cancel();
+                                }
+                            });
+
                         } else {
                             alertDialogBuilder.setMessage("There are no tickets selected");
                         }
@@ -173,7 +181,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
 
                     alertDialogBuilder.setCancelable(false);
-                    alertDialogBuilder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                    alertDialogBuilder.setNeutralButton("Change selection", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {
                             dialog.cancel();
                         }
