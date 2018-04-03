@@ -1,6 +1,8 @@
 package com.example.icadi.lepetitcinema.Presentation;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -131,14 +133,56 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
         switch (view.getId()) {
             case R.id.seatPicker_button_buyTickets:
-                Intent toPayment = new Intent(getApplicationContext(), PaymentSimulationActivity.class);
-                toPayment.putExtra(SEATS, currentlySelectedSeats);
-                toPayment.putExtra(FILMTITLE, getIntent().getStringExtra(FILMTITLE));
-                toPayment.putExtra(PRICE, totalPrice);
-                toPayment.putExtra(AMOUNTOFTICKETS, "" + currentlySelectedSeats.size());
-                toPayment.putExtra(FILM_IMAGE, getIntent().getStringExtra(FILM_IMAGE));
 
-                startActivity(toPayment);
+
+                int currentAmountOfSeats = currentlySelectedSeats.size();
+                int currentAmountOfTickets = childAmount + normalAmount + elderAmount;
+
+                if (currentAmountOfSeats == currentAmountOfTickets && currentAmountOfSeats != 0) {
+                    Intent toPayment = new Intent(getApplicationContext(), PaymentSimulationActivity.class);
+                    toPayment.putExtra(SEATS, currentlySelectedSeats);
+                    toPayment.putExtra(FILMTITLE, getIntent().getStringExtra(FILMTITLE));
+                    toPayment.putExtra(PRICE, totalPrice);
+                    toPayment.putExtra(AMOUNTOFTICKETS, "" + currentlySelectedSeats.size());
+                    toPayment.putExtra(FILM_IMAGE, getIntent().getStringExtra(FILM_IMAGE));
+
+                    startActivity(toPayment);
+
+                } else {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+                    if (currentAmountOfSeats == 0 || currentAmountOfTickets == 0) {
+                        alertDialogBuilder.setTitle("You must reserve at least one seat and ticket!");
+
+                        if (currentAmountOfSeats == 0 && currentAmountOfTickets == 0) {
+                            alertDialogBuilder.setMessage("There is nothing selected");
+
+                        } else if (currentAmountOfSeats == 0){
+                            alertDialogBuilder.setMessage("There are  no seats selected");
+
+                        } else {
+                            alertDialogBuilder.setMessage("There are no tickets selected");
+                        }
+
+
+                    } else {
+                        alertDialogBuilder.setTitle("Amount of tickets and seats are not equal!");
+                        alertDialogBuilder.setMessage("There are currently " + currentAmountOfSeats +
+                                " seats and " + currentAmountOfTickets + " tickets selected");
+                    }
+
+
+                    alertDialogBuilder.setCancelable(false);
+                    alertDialogBuilder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,int id) {
+                            dialog.cancel();
+                        }
+                    });
+
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    alertDialog.show();
+                }
                 break;
 
             case R.id.seatPicker_button_childDecrease:
