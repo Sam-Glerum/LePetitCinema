@@ -9,10 +9,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
+//import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
 import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.Domain.Seat;
 import com.example.icadi.lepetitcinema.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -66,7 +67,10 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
 
         intent = getIntent();
 
-        new ImageManager(filmImage).execute(intent.getStringExtra(SeatPickerActivity.FILM_IMAGE));
+        Picasso
+                .with(getApplicationContext())
+                .load(intent.getStringExtra(SeatPickerActivity.FILM_IMAGE))
+                .into(filmImage);
 
         filmTitle.setText(intent.getStringExtra(SeatPickerActivity.FILMTITLE));
 

@@ -12,7 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
+//import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
 import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.R;
 import com.squareup.picasso.Picasso;
@@ -83,7 +83,10 @@ public class FilmAdapter extends BaseAdapter {
         viewHolder.filmTitle.setText(film.getName());
         Log.i(TAG, film.getName());
 
-        Picasso.with(context).load(film.getPosterImageUrl()).into(viewHolder.filmImage);
+        Picasso
+                .with(context)
+                .load(film.getPosterImageUrl())
+                .into(viewHolder.filmImage);
 
         return convertView;
     }
@@ -91,28 +94,5 @@ public class FilmAdapter extends BaseAdapter {
     private static class ViewHolder {
         public ImageView filmImage;
         public TextView filmTitle;
-    }
-
-    private class ImageLoader extends AsyncTask<String, Void, Bitmap> {
-        ImageView imageView;
-
-        public ImageLoader(ImageView imageView) {
-            this.imageView = imageView;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String imageURL = urls[0];
-            Bitmap bitmap = null;
-            try {
-                // Try to get an InputStream from the url
-                InputStream in = new java.net.URL(imageURL.toLowerCase()).openStream();
-                // Create a new BitMap from the supplied InputStream
-                bitmap = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("ImageLoader", e.getMessage());
-                e.printStackTrace();
-            }
-            return bitmap;
-        }
     }
 }

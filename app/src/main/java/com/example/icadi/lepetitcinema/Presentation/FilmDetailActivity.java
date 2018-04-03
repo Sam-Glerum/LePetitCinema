@@ -10,9 +10,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
+//import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
 import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.R;
+import com.squareup.picasso.Picasso;
 
 public class FilmDetailActivity extends AppCompatActivity implements View.OnClickListener {
     private Film film;
@@ -52,7 +53,11 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
      * This method sets the content of the object variables.
      */
     private void setObjectVariablesContent() {
-        new ImageManager(filmBackgroundImage).execute(film.getBackgroundImageUrl());
+        Picasso
+                .with(getApplicationContext())
+                .load(film.getPosterImageUrl())
+                .into(filmBackgroundImage);
+
         filmTitle.setText(film.getName());
         filmDescription.setText(film.getDescription());
     }
