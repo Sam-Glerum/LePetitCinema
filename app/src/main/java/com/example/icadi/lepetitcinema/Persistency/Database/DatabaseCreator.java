@@ -98,7 +98,21 @@ public class DatabaseCreator extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        Log.i(TAG, "onUpgrade upgrading database");
+        // Check if the database upgrade has a new version, if so, drop the old and create the new database
+        if (newVersion == oldVersion + 1) {
+            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS Ticket; " +
+                    "DROP TABLE IF EXISTS Show;" +
+                    "DROP TABLE IF EXISTS Reservation;" +
+                    "DROP TABLE IF EXISTS Seat;" +
+                    "DROP TABLE IF EXISTS CinemaRoom;" +
+                    "DROP TABLE IF EXISTS Review;" +
+                    "DROP TABLE IF EXISTS CinemaInformation;" +
+                    "DROP TABLE IF EXISTS User;" +
+                    "DROP TABLE IF EXISTS Film;");
+            // Create a newdatabase
+            this.onCreate(sqLiteDatabase);
+        }
     }
 }
