@@ -11,17 +11,17 @@
         android:layout_height="wrap_content"
         tools:context=".Presentation.ContactActivity">
 
-    <ImageView
-        android:id="@+id/contactImageView"
-        android:layout_width="0dp"
-        android:layout_height="282dp"
-        android:contentDescription="Achtergrond"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/contactbackground" />
+        <ImageView
+            android:id="@+id/contactImageView"
+            android:layout_width="0dp"
+            android:layout_height="282dp"
+            android:contentDescription="Achtergrond"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/background" />
 
     <TextView
         android:id="@+id/Saturday"
