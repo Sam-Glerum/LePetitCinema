@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +13,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-//import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
 import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.R;
-import com.squareup.picasso.Picasso;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -78,21 +77,41 @@ public class FilmAdapter extends BaseAdapter {
         }
 
         // Fill the viewHolder with the right film
-        Film film = films.get(position);
+        Film film = (Film) films.get(position);
         // Set the title of the film
         viewHolder.filmTitle.setText(film.getName());
         Log.i(TAG, film.getName());
-
-        Picasso
-                .with(context)
-                .load(film.getPosterImageUrl())
-                .into(viewHolder.filmImage);
-
+        // Set the image of the film to white
+        viewHolder.filmImage.setImageBitmap(null);
+        // TODO: Image ophalen van API en setten als image
         return convertView;
     }
 
     private static class ViewHolder {
         public ImageView filmImage;
         public TextView filmTitle;
+    }
+
+    private class ImageLoader extends AsyncTask<String, Void, Bitmap> {
+        ImageView imageView;
+
+        public ImageLoader(ImageView imageView) {
+            this.imageView = imageView;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String imageURL = urls[0];
+            Bitmap bitmap = null;
+            try {
+                // Try to get an InputStream from the url
+                InputStream in = new java.net.URL(imageURL.toLowerCase()).openStream();
+                // Create a new BitMap from the supplied InputStream
+                bitmap = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("ImageLoader", e.getMessage());
+                e.printStackTrace();
+            }
+            return bitmap;
+        }
     }
 }

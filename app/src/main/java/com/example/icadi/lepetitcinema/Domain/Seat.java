@@ -1,25 +1,23 @@
 package com.example.icadi.lepetitcinema.Domain;
 
-import java.io.Serializable;
-
 /**
  * Created by icadi on 27-3-18.
  */
 
-public class Seat implements Serializable{
-    private String number;
+public class Seat {
+    private int number;
     private boolean isOccupied;
 
-    public Seat(String number) {
+    public Seat(int number) {
         this.number = number;
         isOccupied = false;
     }
 
-    public String getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 
