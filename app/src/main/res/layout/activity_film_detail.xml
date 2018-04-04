@@ -40,10 +40,10 @@
         android:id="@+id/imageView3"
         android:layout_width="0dp"
         android:layout_height="41dp"
+        app:layout_constraintBottom_toBottomOf="@+id/detail_activity_film_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_activity_film_image"
-        app:srcCompat="@android:color/holo_orange_dark" />
+        app:srcCompat="@color/colorTransparantDark" />
 
     <TextView
         android:id="@+id/detail_activity_film_title"
