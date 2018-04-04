@@ -1,27 +1,28 @@
 package com.example.icadi.lepetitcinema.Presentation;
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-//import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
 import com.example.icadi.lepetitcinema.Domain.Film;
+import com.example.icadi.lepetitcinema.Domain.Review;
 import com.example.icadi.lepetitcinema.R;
 import com.squareup.picasso.Picasso;
 
-public class FilmDetailActivity extends AppCompatActivity implements View.OnClickListener {
+public class FilmDetailActivity extends AppCompatActivity implements View.OnClickListener{
+
     private Film film;
 
     private TextView filmTitle;
     private TextView filmDescription;
+    private TextView reviews;
 
     private FloatingActionButton buyTicketsButton;
+    private FloatingActionButton sendReviewButton;
     private ImageView filmBackgroundImage;
 
     @Override
@@ -30,13 +31,15 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_film_detail);
 
         setObjectVariables();
-        
+
         film = (Film) getIntent().getSerializableExtra(MainActivity.FILM);
 
         setObjectVariablesContent();
 
         // Set the on click listener of the order FAB.
         buyTicketsButton.setOnClickListener(this);
+        sendReviewButton.setOnClickListener(this);
+
     }
 
     /**
@@ -47,6 +50,8 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
         filmDescription = findViewById(R.id.detail_activity_film_description);
         buyTicketsButton = findViewById(R.id.detail_activity_order_ticket_fab);
         filmBackgroundImage = findViewById(R.id.detail_activity_film_image);
+        sendReviewButton = findViewById(R.id.detail_activity_review_fab);
+        reviews = findViewById(R.id.detail_activity_reviews);
     }
 
     /**
@@ -60,6 +65,13 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
 
         filmTitle.setText(film.getName());
         filmDescription.setText(film.getDescription());
+
+        String allReviewsInString = "";
+        for (Review review : film.getReviewArrayList()) {
+            allReviewsInString += review;
+        }
+
+        reviews.setText(allReviewsInString);
     }
 
     @Override
@@ -73,6 +85,9 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.detail_activity_review_fab:
+                Intent toReview = new Intent(getApplicationContext(), ReviewActivity.class);
+                toReview.putExtra(MainActivity.FILM, film);
+                startActivity(toReview);
                 break;
         }
     }
