@@ -13,7 +13,7 @@ public class Film implements Serializable {
     private double rating;
     private String posterImageUrl;
     private String backgroundImageUrl;
-    public ArrayList<Review> reviewArrayList = new ArrayList<Review>();
+    public ArrayList<Review> reviewArrayList = new ArrayList<>();
 
     public Film(String name, String description, double rating, String posterImageUrl, String backgroundImageUrl) {
         this.name = name;
