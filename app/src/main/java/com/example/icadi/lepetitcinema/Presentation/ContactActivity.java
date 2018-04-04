@@ -14,7 +14,7 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class ContactActivity extends FragmentActivity implements OnMapReadyCallback {
+public class ContactActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
 
     @Override
