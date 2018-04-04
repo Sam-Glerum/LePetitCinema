@@ -8,4 +8,21 @@
     <string name="Friday">vendredi:    09:30 à 21:30</string>
     <string name="Saturday">samedi:    09:30 à 22:30</string>
     <string name="Sunday">dimanche:    12:00 à 17:00</string>
+    <string name="SP_AmountOfSeats">Nombre de places:</string>
+    <string name="SP_Child">Enfant (0-12 ans):</string>
+    <string name="SP_Normal">Normal (13-64 ans):</string>
+    <string name="SP_Elder">Aîné (65 ans et plus):</string>
+    <string name="SP_TotalPrice">Prix total:</string>
+    <string name="SP_TotalTickets">Nombre total de tickets:</string>
+    <string name="SP_BuyTickets">Achetez des tickets</string>
+    <string name="SP_MustReserveAtLeastOne">Vous devez sélectionner au moins un siège et un ticket.</string>
+    <string name="SP_NothingSelected">Rien n\'est sélectionné.</string>
+    <string name="SP_NoSeatsSelected">Aucun siège n\'a été sélectionné.</string>
+    <string name="SP_PickSeatsButton">Choisissez mes places pour moi</string>
+    <string name="SP_NotEnoughAvailable">Il n\'y a pas assez de places disponibles.</string>
+    <string name="SP_OkButton">D\'accord</string>
+    <string name="SP_NoTicketsSelected">Aucun ticket n\'a été sélectionné.</string>
+    <string name="SP_TicketsAndSeatsNotEqual">Le nombre de tickets et de places ne sont pas les mêmes!</string>
+    <string name="SP_TAndSNotEqual_Message">Il y a actuellement %1$d sièges et %2$d billets sélectionnés.</string>
+    <string name="SP_changeSelectionButton">Changer la sélection</string>
 </resources>

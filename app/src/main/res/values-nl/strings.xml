@@ -24,4 +24,5 @@
     <string name="SP_TicketsAndSeatsNotEqual">Het aantal tickets en stoelen zijn niet gelijk!</string>
     <string name="SP_TAndSNotEqual_Message">"Er zijn momenteel %1$d stoelen en %2$d tickets geselecteerd."</string>
     <string name="SP_changeSelectionButton">Wijzig selectie</string>
+    <string name="SP_OkButton">Ok</string>
 </resources>
