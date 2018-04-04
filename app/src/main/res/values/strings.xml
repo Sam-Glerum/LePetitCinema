@@ -18,4 +18,21 @@
     <string name="ticketString">Ticket</string>
     <string name="paymentSimulationAmountTickets">Amount of tickets:\u0020</string>
     <string name="paymentSimulationSeats">Seats:\u0020</string>
+    <string name="SP_AmountOfSeats">Amount of seats:</string>
+    <string name="SP_Child">Child (age 0-12):</string>
+    <string name="SP_Normal">Normal (age 13-64):</string>
+    <string name="SP_Elder">Elder (age 65+):</string>
+    <string name="SP_TotalPrice">Total price:</string>
+    <string name="SP_TotalTickets">Total amount of tickets:</string>
+    <string name="SP_BuyTickets">Buy tickets</string>
+    <string name="SP_MustReserveAtLeastOne">You must reserve at least one seat and ticket!</string>
+    <string name="SP_NothingSelected">There is nothing selected.</string>
+    <string name="SP_NoSeatsSelected">There are  no seats selected</string>
+    <string name="SP_PickSeatsButton">Pick my seats for me</string>
+    <string name="SP_NotEnoughAvailable">There are not enough seats available,</string>
+    <string name="SP_OkButton">Ok</string>
+    <string name="SP_NoTicketsSelected">There are no tickets selected.</string>
+    <string name="SP_TicketsAndSeatsNotEqual">Amount of tickets and seats are not equal!</string>
+    <string name="SP_TAndSNotEqual_Message">There are currently %1$d seats and %2$d tickets selected.</string>
+    <string name="SP_changeSelectionButton">Change selection</string>
 </resources>

@@ -63,6 +63,9 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
     private double totalPrice;
     private TextView totalPriceTextView;
 
+    private int totalTickets;
+    private TextView totalTicketsTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +105,8 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
         elderPriceTextView = findViewById(R.id.seatPicker_textView_elderPrice);
 
         totalPriceTextView = findViewById(R.id.seatPicker_textView_totalPriceAmount);
+
+        totalTicketsTextView = findViewById(R.id.seatPicker_textView_totalTicketsAmount);
     }
 
     /**
@@ -172,40 +177,40 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                     toPayment.putExtra(SEATS, currentlySelectedSeats);
                     toPayment.putExtra(FILMTITLE, getIntent().getStringExtra(FILMTITLE));
                     toPayment.putExtra(PRICE, totalPrice);
-                    toPayment.putExtra(AMOUNTOFTICKETS, "" + currentlySelectedSeats.size());
+                    toPayment.putExtra(AMOUNTOFTICKETS, "" + totalTickets);
                     toPayment.putExtra(FILM_IMAGE, getIntent().getStringExtra(FILM_IMAGE));
 
                     startActivity(toPayment);
 
                 } else {
                     final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                    final AlertDialog.Builder autoAssignUnsuccesfulDialogBuilder = new AlertDialog.Builder(this);
+                    final AlertDialog.Builder autoAssignUnsuccessfulDialogBuilder = new AlertDialog.Builder(this);
 
                     if (currentAmountOfSeats == 0 || currentAmountOfTickets == 0) {
-                        alertDialogBuilder.setTitle("You must reserve at least one seat and ticket!");
+                        alertDialogBuilder.setTitle(R.string.SP_MustReserveAtLeastOne);
 
                         if (currentAmountOfSeats == 0 && currentAmountOfTickets == 0) {
-                            alertDialogBuilder.setMessage("There is nothing selected");
+                            alertDialogBuilder.setMessage(R.string.SP_NothingSelected);
 
                         } else if (currentAmountOfSeats == 0){
-                            alertDialogBuilder.setMessage("There are  no seats selected");
+                            alertDialogBuilder.setMessage(R.string.SP_NoSeatsSelected);
 
-                            alertDialogBuilder.setPositiveButton("Pick my seats for me", new DialogInterface.OnClickListener() {
+                            alertDialogBuilder.setPositiveButton(R.string.SP_PickSeatsButton, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     dialogInterface.cancel();
 
                                     if (!autoAssignSeats(currentAmountOfTickets)) {
-                                        autoAssignUnsuccesfulDialogBuilder.setTitle("There are not enough seats available");
-                                        autoAssignUnsuccesfulDialogBuilder.setMessage("");
-                                        autoAssignUnsuccesfulDialogBuilder.setCancelable(false);
-                                        autoAssignUnsuccesfulDialogBuilder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                                        autoAssignUnsuccessfulDialogBuilder.setTitle(R.string.SP_NotEnoughAvailable);
+                                        autoAssignUnsuccessfulDialogBuilder.setMessage("");
+                                        autoAssignUnsuccessfulDialogBuilder.setCancelable(false);
+                                        autoAssignUnsuccessfulDialogBuilder.setNeutralButton(R.string.SP_OkButton, new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialogInterface, int i) {
                                                 dialogInterface.cancel();
                                             }
                                         });
-                                        AlertDialog autoAssignUnsuccesfulDialog = autoAssignUnsuccesfulDialogBuilder.create();
+                                        AlertDialog autoAssignUnsuccesfulDialog = autoAssignUnsuccessfulDialogBuilder.create();
                                         autoAssignUnsuccesfulDialog.show();
                                     }
 
@@ -214,19 +219,20 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                             });
 
                         } else {
-                            alertDialogBuilder.setMessage("There are no tickets selected");
+                            alertDialogBuilder.setMessage("");
                         }
 
 
                     } else {
-                        alertDialogBuilder.setTitle("Amount of tickets and seats are not equal!");
-                        alertDialogBuilder.setMessage("There are currently " + currentAmountOfSeats +
-                                " seats and " + currentAmountOfTickets + " tickets selected");
+                        String tAndSNotEqualMessageText = getResources().getString(R.string.SP_TAndSNotEqual_Message, currentAmountOfSeats, currentAmountOfTickets);
+
+                        alertDialogBuilder.setTitle(R.string.SP_TicketsAndSeatsNotEqual);
+                        alertDialogBuilder.setMessage(tAndSNotEqualMessageText);
                     }
 
 
                     alertDialogBuilder.setCancelable(false);
-                    alertDialogBuilder.setNeutralButton("Change selection", new DialogInterface.OnClickListener() {
+                    alertDialogBuilder.setNeutralButton(R.string.SP_changeSelectionButton, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,int id) {
                             dialog.cancel();
                         }
@@ -333,6 +339,9 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
         totalPrice = childPrice + normalPrice + elderPrice;
         totalPriceTextView.setText("" + totalPrice + " euro");
+
+        totalTickets = childAmount + normalAmount + elderAmount;
+        totalTicketsTextView.setText("" + totalTickets);
 
     }
 

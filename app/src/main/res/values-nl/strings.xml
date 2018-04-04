@@ -8,4 +8,21 @@
     <string name="Monday">maandag:      gesloten</string>
     <string name="Thursday">donderdag:     09:30 tot 21:30</string>
     <string name="Tuesday">dinsdag:     09:30 tot 21:30</string>
+    <string name="SP_AmountOfSeats">Aantal stoelen:</string>
+    <string name="SP_Child">Kind (0-12 jaar):</string>
+    <string name="SP_Normal">Normaal (13-64 jaar):</string>
+    <string name="SP_Elder">65+:</string>
+    <string name="SP_TotalPrice">Totaalprijs:</string>
+    <string name="SP_TotalTickets">Totaal aantal tickets:</string>
+    <string name="SP_BuyTickets">Koop tickets</string>
+    <string name="SP_MustReserveAtLeastOne">U dient minimaal één stoel en ticket te selecteren.</string>
+    <string name="SP_NothingSelected">Er is niks geselecteerd.</string>
+    <string name="SP_NoSeatsSelected">Er zijn geen stoelen geselecteerd.</string>
+    <string name="SP_PickSeatsButton">Kies mijn stoelen automatisch</string>
+    <string name="SP_NotEnoughAvailable">Er zijn niet genoeg stoelen beschikbaar.</string>
+    <string name="SP_NoTicketsSelected">Er zijn geen tickets geselecteerd.</string>
+    <string name="SP_TicketsAndSeatsNotEqual">Het aantal tickets en stoelen zijn niet gelijk!</string>
+    <string name="SP_TAndSNotEqual_Message">"Er zijn momenteel %1$d stoelen en %2$d tickets geselecteerd."</string>
+    <string name="SP_changeSelectionButton">Wijzig selectie</string>
+    <string name="SP_OkButton">Ok</string>
 </resources>
