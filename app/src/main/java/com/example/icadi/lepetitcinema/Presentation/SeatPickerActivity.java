@@ -16,7 +16,7 @@ import com.example.icadi.lepetitcinema.Domain.Seat;
 import com.example.icadi.lepetitcinema.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class SeatPickerActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -28,7 +28,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
 //    public final static String CINEMAROOMNR = "CINEMAROOMNR";
 
-    private HashMap<String, SeatImageViewBundle> seatImageViewBundleHashMap;
+    private LinkedHashMap<String, SeatImageViewBundle> seatImageViewBundleHashMap;
     private ArrayList<Seat> currentlySelectedSeats = new ArrayList<>();
     private TextView amountOfSeatsTextView;
     private Button buyTicketButton;
@@ -71,7 +71,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
         amountOfSeatsTextView = (TextView) findViewById(R.id.seatPicker_textView_amountOfSeats);
 
         // Initialise seats
-        seatImageViewBundleHashMap = new HashMap<>();
+        seatImageViewBundleHashMap = new LinkedHashMap<>();
         initSeats();
 
         buyTicketButton = findViewById(R.id.seatPicker_button_buyTickets);
@@ -123,10 +123,38 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 seatImageViewBundleHashMap.put(seatId , seatImageViewBundle);
             }
         }
+
+        Log.i("SeatPicker", "initSeats: size of hashmap = " + seatImageViewBundleHashMap.size());
     }
 
-    public void autoAssignSeats(int numOfSeats) {
+    public boolean autoAssignSeats(int numOfTickets) {
 
+        if (numOfTickets < seatImageViewBundleHashMap.size() + 1) {
+
+            int numOfRemainingTickets = numOfTickets;
+
+            for (String key : seatImageViewBundleHashMap.keySet()) {
+
+                Seat seat = seatImageViewBundleHashMap.get(key).getSeat();
+                ImageView imageView = seatImageViewBundleHashMap.get(key).getImageView();
+
+                if (numOfRemainingTickets > 0 && !seat.isOccupied()) {
+                    imageView.callOnClick();
+                    numOfRemainingTickets--;
+
+                } else if (numOfRemainingTickets <= 0) {
+                    break;
+                }
+
+            }
+
+            return true;
+
+        } else {
+            Log.i("SeatPickerActivity", " autoAssignSeats: ERROR: numOfSeats was bigger than hashmap size!");
+            return false;
+
+        }
     }
 
     @Override
@@ -137,7 +165,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
 
                 final int currentAmountOfSeats = currentlySelectedSeats.size();
-                int currentAmountOfTickets = childAmount + normalAmount + elderAmount;
+                final int currentAmountOfTickets = childAmount + normalAmount + elderAmount;
 
                 if (currentAmountOfSeats == currentAmountOfTickets && currentAmountOfSeats != 0) {
                     Intent toPayment = new Intent(getApplicationContext(), PaymentSimulationActivity.class);
@@ -150,7 +178,8 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                     startActivity(toPayment);
 
                 } else {
-                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                    final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                    final AlertDialog.Builder autoAssignUnsuccesfulDialogBuilder = new AlertDialog.Builder(this);
 
                     if (currentAmountOfSeats == 0 || currentAmountOfTickets == 0) {
                         alertDialogBuilder.setTitle("You must reserve at least one seat and ticket!");
@@ -164,9 +193,23 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                             alertDialogBuilder.setPositiveButton("Pick my seats for me", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-
-                                    autoAssignSeats(currentAmountOfSeats);
                                     dialogInterface.cancel();
+
+                                    if (!autoAssignSeats(currentAmountOfTickets)) {
+                                        autoAssignUnsuccesfulDialogBuilder.setTitle("There are not enough seats available");
+                                        autoAssignUnsuccesfulDialogBuilder.setMessage("");
+                                        autoAssignUnsuccesfulDialogBuilder.setCancelable(false);
+                                        autoAssignUnsuccesfulDialogBuilder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                dialogInterface.cancel();
+                                            }
+                                        });
+                                        AlertDialog autoAssignUnsuccesfulDialog = autoAssignUnsuccesfulDialogBuilder.create();
+                                        autoAssignUnsuccesfulDialog.show();
+                                    }
+
+
                                 }
                             });
 
