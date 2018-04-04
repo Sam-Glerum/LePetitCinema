@@ -38,5 +38,5 @@
     <string name="SP_changeSelectionButton">Change selection</string>
     <string name="SendReview">Send Review</string>
     <string name="Reviewheader">Review Film</string>
-
+    <string name="Main_searchButton">Search</string>
 </resources>

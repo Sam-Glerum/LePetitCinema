@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.icadi.lepetitcinema.ApplicationLogic.APIManager;
@@ -22,13 +24,16 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements APIManager.OnFilmAvailable,
         AdapterView.OnItemClickListener,
-        NavigationView.OnNavigationItemSelectedListener{
+        NavigationView.OnNavigationItemSelectedListener,
+        View.OnClickListener {
 
     public static String FILM = "FILM";
 
     private DrawerLayout mDrawerLayout;
 
     private ListView listView;
+    private EditText searchBar;
+    private Button searchButton;
 
     // ArrayList to store films
     private ArrayList<Film> films;
@@ -49,6 +54,9 @@ public class MainActivity extends AppCompatActivity implements APIManager.OnFilm
 
         listView = findViewById(R.id.filmList);
         mDrawerLayout = findViewById(R.id.drawer_layout);
+        searchBar = findViewById(R.id.main_activity_search_bar);
+        searchButton = findViewById(R.id.main_activity_search_button);
+        searchButton.setOnClickListener(this);
 
         // Fill arraylist with testdata
         films = new ArrayList<>();
@@ -62,12 +70,16 @@ public class MainActivity extends AppCompatActivity implements APIManager.OnFilm
         // Set an onItemClickListener, which directs the user to the DetailActivity Page of the Film
         listView.setOnItemClickListener(this);
 
-        String[] urls = new String[]{"https://api.themoviedb.org/3/discover/movie?api_key=21900c2d8963dfde03c91e3bddc6009b"};
-        APIManager apiManager = new APIManager(this);
-        apiManager.execute(urls);
+        callAPI();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    public void callAPI() {
+        String[] urls = new String[]{"https://api.themoviedb.org/3/discover/movie?api_key=21900c2d8963dfde03c91e3bddc6009b"};
+        APIManager apiManager = new APIManager(this);
+        apiManager.execute(urls);
     }
 
     @Override
@@ -120,5 +132,27 @@ public class MainActivity extends AppCompatActivity implements APIManager.OnFilm
         // close the drawer after the contact item is selected
         mDrawerLayout.closeDrawers();
         return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+        ArrayList<Film> searchResults = new ArrayList<>();
+
+        String searQuery = searchBar.getText().toString();
+
+        if (!searQuery.equals("")) {
+            for (Film film : films) {
+                if (film.getName().toLowerCase().contains(searQuery.toLowerCase())) {
+                    searchResults.add(film);
+                }
+            }
+            searchBar.setText("");
+            films.clear();
+            films.addAll(searchResults);
+            filmAdapter.notifyDataSetChanged();
+        } else {
+            films.clear();
+            callAPI();
+        }
     }
 }
