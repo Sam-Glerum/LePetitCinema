@@ -18,4 +18,8 @@
     <string name="ticketString">Ticket</string>
     <string name="paymentSimulationAmountTickets">Amount of tickets:\u0020</string>
     <string name="paymentSimulationSeats">Seats:\u0020</string>
+    <string name="SendReview">Verzend review</string>
+    <string name="Reviewheader">Geef een review</string>
+    <string name="Emailheader">Voer uw emailadres in</string>
+
 </resources>
