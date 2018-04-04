@@ -15,10 +15,10 @@ import java.util.ArrayList;
  * Created by icadi on 4-4-18.
  */
 
-public class DatabaseCreator extends SQLiteOpenHelper {
+public class DatabaseHandler extends SQLiteOpenHelper {
 
     // Tag used for logging
-    private static final String TAG = DatabaseCreator.class.getSimpleName();
+    private static final String TAG = DatabaseHandler.class.getSimpleName();
 
     // Constants
     private static final String FILMTITLE = "filmtitle";
@@ -29,7 +29,7 @@ public class DatabaseCreator extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
 
-    public DatabaseCreator(Context context) {
+    public DatabaseHandler(Context context) {
         super(context, "LePetitCinemaTicket", null, DATABASE_VERSION);
     }
 
