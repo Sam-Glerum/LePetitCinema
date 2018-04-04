@@ -1,26 +1,28 @@
 package com.example.icadi.lepetitcinema.Domain;
 
-public class Review {
+import java.io.Serializable;
+
+public class Review implements Serializable{
 
     private String reviewText;
-    private String emailaddress;
+    private String emailAddress;
 
     public String getReviewText() {
         return reviewText;
     }
 
-    public String getEmailaddress() {
-        return emailaddress;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public Review (String emailaddress, String reviewText){
-        this.emailaddress=emailaddress;
+    public Review (String emailAddress, String reviewText){
+        this.emailAddress = emailAddress;
         this.reviewText=reviewText;
 
     }
 
     @Override
     public String toString() {
-        return emailaddress + "\n" + reviewText;
+        return emailAddress + "\n" + reviewText + "\n\n";
     }
 }
