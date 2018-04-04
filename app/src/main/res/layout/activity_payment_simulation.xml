@@ -22,20 +22,6 @@
         app:layout_constraintTop_toBottomOf="@+id/payment_simulation_activity_film_image" />
 
     <TextView
-        android:id="@+id/payment_simulation_activity_cinema_room"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="[cinemaRoom]"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/payment_simulation_activity_amount_of_tickets" />
-
-    <TextView
         android:id="@+id/payment_simulation_activity_seat_numbers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,7 +33,7 @@
         android:text="[SeatNumber]"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/payment_simulation_activity_cinema_room" />
+        app:layout_constraintTop_toBottomOf="@+id/payment_simulation_activity_amount_of_tickets" />
 
     <TextView
         android:id="@+id/payment_simulation_activity_price"
@@ -75,6 +61,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:color/holo_blue_light" />
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toBottomOf="@+id/payment_simulation_activity_film_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@color/colorTransparantDark" />
+
     <TextView
         android:id="@+id/payment_simulation_activity_film_title"
         android:layout_width="wrap_content"
@@ -83,17 +79,15 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="96dp"
         android:text="Title"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/payment_simulation_activity_film_image"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.808" />
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <Button
         android:id="@+id/payment_simulation_activity_pay_ticket_button"

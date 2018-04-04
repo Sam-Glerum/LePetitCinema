@@ -20,6 +20,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
     private TextView filmTitle;
     private TextView filmDescription;
     private TextView reviews;
+    private TextView rating;
 
     private FloatingActionButton buyTicketsButton;
     private FloatingActionButton sendReviewButton;
@@ -52,6 +53,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
         filmBackgroundImage = findViewById(R.id.detail_activity_film_image);
         sendReviewButton = findViewById(R.id.detail_activity_review_fab);
         reviews = findViewById(R.id.detail_activity_reviews);
+        rating = findViewById(R.id.detail_activity_rating);
     }
 
     /**
@@ -72,6 +74,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
         }
 
         reviews.setText(allReviewsInString);
+        rating.setText("Waardering: " + film.getRating() + "/10");
     }
 
     @Override
