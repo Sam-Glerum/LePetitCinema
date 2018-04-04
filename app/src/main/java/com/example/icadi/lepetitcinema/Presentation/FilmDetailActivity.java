@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +17,6 @@ import com.squareup.picasso.Picasso;
 
 public class FilmDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static String FILMTITLE;
     private Film film;
 
     private TextView filmTitle;
@@ -40,6 +40,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
         // Set the on click listener of the order FAB.
         buyTicketsButton.setOnClickListener(this);
         sendReviewButton.setOnClickListener(this);
+
     }
 
     /**
@@ -64,6 +65,13 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
 
         filmTitle.setText(film.getName());
         filmDescription.setText(film.getDescription());
+        if (!film.reviewArrayList.isEmpty()){
+            Log.i("TESTBEFOREREFRESH", film.reviewArrayList.toString());
+            //TODO: Add review to XML list
+            finish();
+            startActivity(getIntent());
+            Log.i("TESTAFTERREFRESH", film.reviewArrayList.toString());
+        }
     }
 
     @Override
@@ -77,9 +85,8 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.detail_activity_review_fab:
-                System.out.println("test");
                 Intent toReview = new Intent(getApplicationContext(), ReviewActivity.class);
-                toReview.putExtra(FILMTITLE, film.getName());
+                toReview.putExtra(MainActivity.FILM, film);
                 startActivity(toReview);
                 break;
         }
