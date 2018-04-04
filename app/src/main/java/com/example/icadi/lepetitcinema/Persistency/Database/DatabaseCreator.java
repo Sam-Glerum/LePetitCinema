@@ -1,5 +1,6 @@
 package com.example.icadi.lepetitcinema.Persistency.Database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -86,5 +87,25 @@ public class DatabaseCreator extends SQLiteOpenHelper {
         db.close();
         // Return the ArrayList with Tickets
         return tickets;
+    }
+
+    // Method used to add Tickets to the database
+    public void addTicket(Ticket ticket) {
+        Log.i(TAG, "addTicket called");
+
+        // Create the values to be stored in the database
+        ContentValues values = new ContentValues();
+        values.put(FILMTITLE, ticket.getFilmName());
+        values.put(SEATS, ticket.getSeatNumber());
+        values.put(CINEMAROOM, ticket.getCinemaRoom());
+        values.put(QRCODEDATA, ticket.getQrCodeData());
+
+        // Initialize writable access to the database
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Insert the data into the database
+        db.insert("Ticket", null, values);
+        Log.i(TAG, "Ticket added to database: " + FILMTITLE);
+        // Close the database connection
+        db.close();
     }
 }
