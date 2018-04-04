@@ -4,5 +4,9 @@
         <item
             android:id="@+id/contact"
             android:title="Contact" />
+
+        <item
+            android:id="@+id/etickets"
+            android:title="@string/menuItemETicket" />
     </group>
 </menu>
