@@ -25,4 +25,5 @@
     <string name="SP_TicketsAndSeatsNotEqual">Le nombre de tickets et de places ne sont pas les mêmes!</string>
     <string name="SP_TAndSNotEqual_Message">Il y a actuellement %1$d sièges et %2$d billets sélectionnés.</string>
     <string name="SP_changeSelectionButton">Changer la sélection</string>
+    <string name="SendReview">Envoyez révision</string>
 </resources>
