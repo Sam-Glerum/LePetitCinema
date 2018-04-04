@@ -29,10 +29,12 @@ public class ContactActivity extends FragmentActivity implements OnMapReadyCallb
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         LatLng bioscoopLocatie = new LatLng(51.5827873, 4.7757034);
 //        Marker marker = mMap.addMarker(new MarkerOptions().position(bioscoopLocatie).title("Bioscoop").visible(true));
         mMap.addMarker(new MarkerOptions().position(bioscoopLocatie).title("Bioscoop"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(bioscoopLocatie));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bioscoopLocatie, 16));
+
 
     }
 }
