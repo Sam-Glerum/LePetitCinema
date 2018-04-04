@@ -20,6 +20,6 @@
     <string name="paymentSimulationSeats">Seats:\u0020</string>
     <string name="SendReview">Verzend review</string>
     <string name="Reviewheader">Geef een review</string>
-    <string name="Emailheader">Voer uw emailadres in</string>
+    <string name="Emailheader">Voer uw naam in</string>
 
 </resources>
