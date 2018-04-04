@@ -66,6 +66,10 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
     private int totalTickets;
     private TextView totalTicketsTextView;
 
+    private int amountOfOccupiedSeats;
+
+    int currentAmountOfTickets;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +78,8 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
         amountOfSeatsTextView = (TextView) findViewById(R.id.seatPicker_textView_amountOfSeats);
 
         // Initialise seats
+        amountOfOccupiedSeats = 0;
+
         seatImageViewBundleHashMap = new LinkedHashMap<>();
         initSeats();
 
@@ -111,7 +117,6 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
     /**
      * Adds Seats and Imageviews to the HashMap
-     *
      */
     public void initSeats() {
 
@@ -123,42 +128,36 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 imageView.setOnClickListener(this);
 
                 Seat seat = new Seat(seatId);
+
+                if (seat.isOccupied()) {
+                    amountOfOccupiedSeats++;
+                }
+
                 SeatImageViewBundle seatImageViewBundle = new SeatImageViewBundle(seat, imageView);
 
-                seatImageViewBundleHashMap.put(seatId , seatImageViewBundle);
+                seatImageViewBundleHashMap.put(seatId, seatImageViewBundle);
             }
         }
 
         Log.i("SeatPicker", "initSeats: size of hashmap = " + seatImageViewBundleHashMap.size());
     }
 
-    public boolean autoAssignSeats(int numOfTickets) {
+    public void autoAssignSeats(int numOfTickets) {
 
-        if (numOfTickets < seatImageViewBundleHashMap.size() + 1) {
+        int numOfRemainingTickets = numOfTickets;
 
-            int numOfRemainingTickets = numOfTickets;
+        for (String key : seatImageViewBundleHashMap.keySet()) {
 
-            for (String key : seatImageViewBundleHashMap.keySet()) {
+            Seat seat = seatImageViewBundleHashMap.get(key).getSeat();
+            ImageView imageView = seatImageViewBundleHashMap.get(key).getImageView();
 
-                Seat seat = seatImageViewBundleHashMap.get(key).getSeat();
-                ImageView imageView = seatImageViewBundleHashMap.get(key).getImageView();
+            if (numOfRemainingTickets > 0 && !seat.isOccupied()) {
+                imageView.callOnClick();
+                numOfRemainingTickets--;
 
-                if (numOfRemainingTickets > 0 && !seat.isOccupied()) {
-                    imageView.callOnClick();
-                    numOfRemainingTickets--;
-
-                } else if (numOfRemainingTickets <= 0) {
-                    break;
-                }
-
+            } else if (numOfRemainingTickets <= 0) {
+                break;
             }
-
-            return true;
-
-        } else {
-            Log.i("SeatPickerActivity", " autoAssignSeats: ERROR: numOfSeats was bigger than hashmap size!");
-            return false;
-
         }
     }
 
@@ -169,78 +168,81 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
             case R.id.seatPicker_button_buyTickets:
 
 
-                final int currentAmountOfSeats = currentlySelectedSeats.size();
-                final int currentAmountOfTickets = childAmount + normalAmount + elderAmount;
+                int currentAmountOfSeats = currentlySelectedSeats.size();
+                currentAmountOfTickets = childAmount + normalAmount + elderAmount;
 
-                if (currentAmountOfSeats == currentAmountOfTickets && currentAmountOfSeats != 0) {
-                    Intent toPayment = new Intent(getApplicationContext(), PaymentSimulationActivity.class);
-                    toPayment.putExtra(SEATS, currentlySelectedSeats);
-                    toPayment.putExtra(FILMTITLE, getIntent().getStringExtra(FILMTITLE));
-                    toPayment.putExtra(PRICE, totalPrice);
-                    toPayment.putExtra(AMOUNTOFTICKETS, "" + totalTickets);
-                    toPayment.putExtra(FILM_IMAGE, getIntent().getStringExtra(FILM_IMAGE));
-
-                    startActivity(toPayment);
-
-                } else {
-                    final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                    final AlertDialog.Builder autoAssignUnsuccessfulDialogBuilder = new AlertDialog.Builder(this);
-
-                    if (currentAmountOfSeats == 0 || currentAmountOfTickets == 0) {
-                        alertDialogBuilder.setTitle(R.string.SP_MustReserveAtLeastOne);
-
-                        if (currentAmountOfSeats == 0 && currentAmountOfTickets == 0) {
-                            alertDialogBuilder.setMessage(R.string.SP_NothingSelected);
-
-                        } else if (currentAmountOfSeats == 0){
-                            alertDialogBuilder.setMessage(R.string.SP_NoSeatsSelected);
-
-                            alertDialogBuilder.setPositiveButton(R.string.SP_PickSeatsButton, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    dialogInterface.cancel();
-
-                                    if (!autoAssignSeats(currentAmountOfTickets)) {
-                                        autoAssignUnsuccessfulDialogBuilder.setTitle(R.string.SP_NotEnoughAvailable);
-                                        autoAssignUnsuccessfulDialogBuilder.setMessage("");
-                                        autoAssignUnsuccessfulDialogBuilder.setCancelable(false);
-                                        autoAssignUnsuccessfulDialogBuilder.setNeutralButton(R.string.SP_OkButton, new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialogInterface, int i) {
-                                                dialogInterface.cancel();
-                                            }
-                                        });
-                                        AlertDialog autoAssignUnsuccesfulDialog = autoAssignUnsuccessfulDialogBuilder.create();
-                                        autoAssignUnsuccesfulDialog.show();
-                                    }
+                if (currentAmountOfTickets <= (seatImageViewBundleHashMap.size() - amountOfOccupiedSeats)) {
 
 
-                                }
-                            });
+                    if (currentAmountOfSeats == currentAmountOfTickets && currentAmountOfSeats != 0) {
+                        Intent toPayment = new Intent(getApplicationContext(), PaymentSimulationActivity.class);
+                        toPayment.putExtra(SEATS, currentlySelectedSeats);
+                        toPayment.putExtra(FILMTITLE, getIntent().getStringExtra(FILMTITLE));
+                        toPayment.putExtra(PRICE, totalPrice);
+                        toPayment.putExtra(AMOUNTOFTICKETS, "" + totalTickets);
+                        toPayment.putExtra(FILM_IMAGE, getIntent().getStringExtra(FILM_IMAGE));
 
-                        } else {
-                            alertDialogBuilder.setMessage("");
-                        }
-
+                        startActivity(toPayment);
 
                     } else {
-                        String tAndSNotEqualMessageText = getResources().getString(R.string.SP_TAndSNotEqual_Message, currentAmountOfSeats, currentAmountOfTickets);
+                        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
-                        alertDialogBuilder.setTitle(R.string.SP_TicketsAndSeatsNotEqual);
-                        alertDialogBuilder.setMessage(tAndSNotEqualMessageText);
+
+                        if (currentAmountOfSeats == 0 || currentAmountOfTickets == 0) {
+                            alertDialogBuilder.setTitle(R.string.SP_MustReserveAtLeastOne);
+
+                            if (currentAmountOfSeats == 0 && currentAmountOfTickets == 0) {
+                                alertDialogBuilder.setMessage(R.string.SP_NothingSelected);
+
+                            } else if (currentAmountOfSeats == 0) {
+                                alertDialogBuilder.setMessage(R.string.SP_NoSeatsSelected);
+
+                                alertDialogBuilder.setPositiveButton(R.string.SP_PickSeatsButton, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        autoAssignSeats(getCurrentAmountOfTickets());
+                                        dialogInterface.cancel();
+                                    }
+                                });
+
+                            } else {
+                                alertDialogBuilder.setMessage("");
+                            }
+
+
+                        } else {
+                            String tAndSNotEqualMessageText = getResources().getString(R.string.SP_TAndSNotEqual_Message, currentAmountOfSeats, currentAmountOfTickets);
+
+                            alertDialogBuilder.setTitle(R.string.SP_TicketsAndSeatsNotEqual);
+                            alertDialogBuilder.setMessage(tAndSNotEqualMessageText);
+                        }
+
+
+                        alertDialogBuilder.setCancelable(false);
+                        alertDialogBuilder.setNeutralButton(R.string.SP_changeSelectionButton, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+
+                        alertDialog.show();
                     }
+                } else {
+                    final AlertDialog.Builder autoAssignUnsuccessfulDialogBuilder = new AlertDialog.Builder(this);
 
-
-                    alertDialogBuilder.setCancelable(false);
-                    alertDialogBuilder.setNeutralButton(R.string.SP_changeSelectionButton, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,int id) {
-                            dialog.cancel();
+                    autoAssignUnsuccessfulDialogBuilder.setTitle(R.string.SP_NotEnoughAvailable);
+                    autoAssignUnsuccessfulDialogBuilder.setMessage("");
+                    autoAssignUnsuccessfulDialogBuilder.setCancelable(false);
+                    autoAssignUnsuccessfulDialogBuilder.setNeutralButton(R.string.SP_OkButton, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
                         }
                     });
-
-                    AlertDialog alertDialog = alertDialogBuilder.create();
-
-                    alertDialog.show();
+                    AlertDialog autoAssignUnsuccesfulDialog = autoAssignUnsuccessfulDialogBuilder.create();
+                    autoAssignUnsuccesfulDialog.show();
                 }
                 break;
 
@@ -334,7 +336,6 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 amountOfSeatsTextView.setText("" + currentlySelectedSeats.size());
 
 
-
         }
 
         totalPrice = childPrice + normalPrice + elderPrice;
@@ -351,5 +352,13 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
     public void setCurrentlySelectedSeats(ArrayList<Seat> currentlySelectedSeats) {
         this.currentlySelectedSeats = currentlySelectedSeats;
+    }
+
+    public int getCurrentAmountOfTickets() {
+        return currentAmountOfTickets;
+    }
+
+    public void setCurrentAmountOfTickets(int currentAmountOfTickets) {
+        this.currentAmountOfTickets = currentAmountOfTickets;
     }
 }
