@@ -9,10 +9,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
+//import com.example.icadi.lepetitcinema.ApplicationLogic.ImageManager;
 import com.example.icadi.lepetitcinema.Domain.Film;
 import com.example.icadi.lepetitcinema.Domain.Seat;
 import com.example.icadi.lepetitcinema.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,6 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
     private ImageView filmImage;
     private TextView filmTitle;
     private TextView amountOfTickets;
-    private TextView cinemaRoom;
     private TextView seatNumber;
     private TextView price;
     private Button payTicketButton;
@@ -50,7 +50,6 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
         filmImage = findViewById(R.id.payment_simulation_activity_film_image);
         filmTitle = findViewById(R.id.payment_simulation_activity_film_title);
         amountOfTickets = findViewById(R.id.payment_simulation_activity_amount_of_tickets);
-        cinemaRoom = findViewById(R.id.payment_simulation_activity_cinema_room);
         seatNumber = findViewById(R.id.payment_simulation_activity_seat_numbers);
         price = findViewById(R.id.payment_simulation_activity_price);
         payTicketButton = findViewById(R.id.payment_simulation_activity_pay_ticket_button);
@@ -66,7 +65,10 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
 
         intent = getIntent();
 
-        new ImageManager(filmImage).execute(intent.getStringExtra(SeatPickerActivity.FILM_IMAGE));
+        Picasso
+                .with(getApplicationContext())
+                .load(intent.getStringExtra(SeatPickerActivity.FILM_IMAGE))
+                .into(filmImage);
 
         filmTitle.setText(intent.getStringExtra(SeatPickerActivity.FILMTITLE));
 
