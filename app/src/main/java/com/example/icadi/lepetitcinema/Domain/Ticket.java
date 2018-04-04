@@ -7,51 +7,15 @@ import java.io.File;
  */
 
 public class Ticket {
-    private int id;
-    private String filmName;
-    private String seatNumber;
-    private String cinemaRoom;
     private String qrCodeData;
     private File qrCodeImage;
     private String date;
     private String time;
 
-    public Ticket(String filmName, String seatNumber, String cinemaRoom, String qrCodeData, File qrCodeImage, String date, String time) {
-        this.filmName = filmName;
-        this.seatNumber = seatNumber;
-        this.cinemaRoom = cinemaRoom;
+    public Ticket(String qrCodeData, String date, String time) {
         this.qrCodeData = qrCodeData;
-        this.qrCodeImage = qrCodeImage;
         this.date = date;
         this.time = time;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getFilmName() {
-        return filmName;
-    }
-
-    public void setFilmName(String filmName) {
-        this.filmName = filmName;
-    }
-
-    public String getSeatNumber() {
-        return seatNumber;
-    }
-
-    public void setSeatNumber(String seatNumber) {
-        this.seatNumber = seatNumber;
-    }
-
-    public String getCinemaRoom() {
-        return cinemaRoom;
-    }
-
-    public void setCinemaRoom(String cinemaRoom) {
-        this.cinemaRoom = cinemaRoom;
     }
 
     public String getQrCodeData() {

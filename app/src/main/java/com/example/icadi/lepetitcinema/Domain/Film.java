@@ -1,26 +1,18 @@
 package com.example.icadi.lepetitcinema.Domain;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-
 /**
  * Created by icadi on 27-3-18.
  */
 
-public class Film implements Serializable {
+public class Film {
     private String name;
     private String description;
-    private double rating;
-    private String posterImageUrl;
-    private String backgroundImageUrl;
-    public ArrayList<Review> reviewArrayList = new ArrayList<>();
+    private int duration;
 
-    public Film(String name, String description, double rating, String posterImageUrl, String backgroundImageUrl) {
+    public Film(String name, String description, int duration) {
         this.name = name;
         this.description = description;
-        this.rating = rating;
-        this.posterImageUrl = posterImageUrl;
-        this.backgroundImageUrl = backgroundImageUrl;
+        this.duration = duration;
     }
 
     public String getName() {
@@ -39,35 +31,11 @@ public class Film implements Serializable {
         this.description = description;
     }
 
-    public void setRating(double rating) {
-        this.rating = rating;
+    public int getDuration() {
+        return duration;
     }
 
-    public String getPosterImageUrl() {
-        return posterImageUrl;
-    }
-
-    public String getBackgroundImageUrl() {
-        return backgroundImageUrl;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
-    public ArrayList<Review> getReviewArrayList() {
-        return reviewArrayList;
-    }
-
-    @Override
-    public String toString() {
-        return "Film{" +
-
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", rating=" + rating +
-                ", posterImageUrl='" + posterImageUrl + '\'' +
-                ", backgroundImageUrl='" + backgroundImageUrl + '\'' +
-                '}';
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 }
