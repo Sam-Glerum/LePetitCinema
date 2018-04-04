@@ -125,6 +125,10 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    public void autoAssignSeats(int numOfSeats) {
+
+    }
+
     @Override
     public void onClick(View view) {
 
@@ -132,7 +136,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
             case R.id.seatPicker_button_buyTickets:
 
 
-                int currentAmountOfSeats = currentlySelectedSeats.size();
+                final int currentAmountOfSeats = currentlySelectedSeats.size();
                 int currentAmountOfTickets = childAmount + normalAmount + elderAmount;
 
                 if (currentAmountOfSeats == currentAmountOfTickets && currentAmountOfSeats != 0) {
@@ -161,6 +165,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
 
+                                    autoAssignSeats(currentAmountOfSeats);
                                     dialogInterface.cancel();
                                 }
                             });
