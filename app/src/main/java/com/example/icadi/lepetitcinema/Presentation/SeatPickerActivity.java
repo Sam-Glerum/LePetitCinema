@@ -28,7 +28,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
 //    public final static String CINEMAROOMNR = "CINEMAROOMNR";
 
-    private HashMap<String, SeatImageViewBundle> seats;
+    private HashMap<String, SeatImageViewBundle> seatImageViewBundleHashMap;
     private ArrayList<Seat> currentlySelectedSeats = new ArrayList<>();
     private TextView amountOfSeatsTextView;
     private Button buyTicketButton;
@@ -70,7 +70,8 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
         amountOfSeatsTextView = (TextView) findViewById(R.id.seatPicker_textView_amountOfSeats);
 
-        // Initialise all seats
+        // Initialise seats
+        seatImageViewBundleHashMap = new HashMap<>();
         initSeats();
 
         buyTicketButton = findViewById(R.id.seatPicker_button_buyTickets);
@@ -104,12 +105,10 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
     }
 
     /**
-     * Returns the ImageViews of the seats displayed in the activity.
+     * Adds Seats and Imageviews to the HashMap
      *
-     * @return A 2d array of ImageViews.
      */
     public void initSeats() {
-        ImageView[][] imageViews = new ImageView[6][9];
 
         for (int i = 0; i < 6; i++) {
             for (int ii = 0; ii < 9; ii++) {
@@ -121,7 +120,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 Seat seat = new Seat(seatId);
                 SeatImageViewBundle seatImageViewBundle = new SeatImageViewBundle(seat, imageView);
 
-                seats.put(seatId , seatImageViewBundle);
+                seatImageViewBundleHashMap.put(seatId , seatImageViewBundle);
             }
         }
     }
