@@ -32,9 +32,25 @@ public class ETicketsActivity extends AppCompatActivity implements AdapterView.O
 
         listView = findViewById(R.id.ticketsListView);
 
-        Ticket ticket1 = new Ticket("Jumanji", "1", "3", "", null, "29-3-2018", "16:00");
+        Ticket jumanji = new Ticket("Jumanji", "1", "2", "", null, "29-3-2018", "16:00");
+        Ticket fiftyShadesFreed = new Ticket("Fifty Shades Freed", "4", "2", "", null, "1-4-2018", "15:25");
+        Ticket zootopia = new Ticket("Zootopia", "3", "1", "", null, "3-4-2018", "14:30");
+        Ticket starWars = new Ticket("Star Wars: The Last Jedi", "26", "1", "", null, "5-4-2018", "13:20");
+        Ticket blackPanther = new Ticket("Black Panther", "43", "2", "", null, "4-4-2018", "14:00");
+        Ticket coco = new Ticket("Coco", "34", "2", "", null, "6-4-2018", "10:00");
+        Ticket readyPlayerOne = new Ticket("Ready Player One", "48", "2", "", null, "4-4-2018", "14:00");
+        Ticket tombRaider = new Ticket("Tomb Raider", "22", "1", "", null, "8-4-2018", "18:00");
+        Ticket thorRagnarok = new Ticket("Thor: Ragnarok", "30", "1", "", null, "8-4-2018", "22:00");
+        tickets.add(jumanji);
+        tickets.add(fiftyShadesFreed);
+        tickets.add(zootopia);
+        tickets.add(starWars);
+        tickets.add(blackPanther);
+        tickets.add(coco);
+        tickets.add(readyPlayerOne);
+        tickets.add(tombRaider);
+        tickets.add(thorRagnarok);
 
-        tickets.add(ticket1);
 
         eTicketsAdapter = new ETicketsAdapter(getApplicationContext(), getLayoutInflater(), tickets);
         listView.setAdapter(eTicketsAdapter);
