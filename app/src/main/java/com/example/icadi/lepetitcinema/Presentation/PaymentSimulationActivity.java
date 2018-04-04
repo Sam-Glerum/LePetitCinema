@@ -24,7 +24,6 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
     private ImageView filmImage;
     private TextView filmTitle;
     private TextView amountOfTickets;
-    private TextView cinemaRoom;
     private TextView seatNumber;
     private TextView price;
     private Button payTicketButton;
@@ -51,7 +50,6 @@ public class PaymentSimulationActivity extends AppCompatActivity implements View
         filmImage = findViewById(R.id.payment_simulation_activity_film_image);
         filmTitle = findViewById(R.id.payment_simulation_activity_film_title);
         amountOfTickets = findViewById(R.id.payment_simulation_activity_amount_of_tickets);
-        cinemaRoom = findViewById(R.id.payment_simulation_activity_cinema_room);
         seatNumber = findViewById(R.id.payment_simulation_activity_seat_numbers);
         price = findViewById(R.id.payment_simulation_activity_price);
         payTicketButton = findViewById(R.id.payment_simulation_activity_pay_ticket_button);
