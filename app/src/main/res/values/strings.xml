@@ -18,6 +18,7 @@
     <string name="ticketString">Ticket</string>
     <string name="paymentSimulationAmountTickets">Amount of tickets:\u0020</string>
     <string name="paymentSimulationSeats">Seats:\u0020</string>
+    <string name="google_api_key">AIzaSyA-Yz7Y3DI-L5KE6_mbvJPya7YVcD5htRI</string>
     <string name="SP_AmountOfSeats">Amount of seats:</string>
     <string name="SP_Child">Child (age 0-12):</string>
     <string name="SP_Normal">Normal (age 13-64):</string>
