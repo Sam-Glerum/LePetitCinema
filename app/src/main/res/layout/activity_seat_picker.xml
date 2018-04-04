@@ -655,7 +655,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Amount of seats:"
+            android:text="@string/SP_AmountOfSeats"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/screen" />
 
@@ -681,7 +681,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Child (age 0-12):"
+            android:text="@string/SP_Child"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
 
@@ -738,7 +738,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Normal (age 13-64):"
+            android:text="@string/SP_Normal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
@@ -784,7 +784,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Elder (age 65+):"
+            android:text="@string/SP_Elder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
@@ -819,8 +819,23 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Total price:"
+            android:text="@string/SP_TotalPrice"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider5" />
+
+        <TextView
+            android:id="@+id/seatPicker_textView_totalTicketsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/SP_TotalTickets"
+            app:layout_constraintEnd_toStartOf="@+id/seatPicker_textView_totalTicketsAmount"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_totalPriceAmount"
             app:layout_constraintTop_toBottomOf="@+id/divider5" />
 
         <View
@@ -838,9 +853,9 @@
             android:id="@+id/seatPicker_textView_totalPriceAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:text="0.0 euro"
             app:layout_constraintBottom_toBottomOf="@+id/seatPicker_textView_totalPriceLabel"
@@ -849,13 +864,24 @@
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_totalPriceLabel"
             app:layout_constraintTop_toTopOf="@+id/seatPicker_textView_totalPriceLabel" />
 
+        <TextView
+            android:id="@+id/seatPicker_textView_totalTicketsAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="0"
+            app:layout_constraintBottom_toBottomOf="@+id/seatPicker_textView_totalTicketsLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/seatPicker_textView_totalTicketsLabel" />
+
         <Button
             android:id="@+id/seatPicker_button_buyTickets"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
-            android:text="Buy tickets"
+            android:text="@string/SP_BuyTickets"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
