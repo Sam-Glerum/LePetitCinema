@@ -16,6 +16,7 @@ import com.example.icadi.lepetitcinema.Domain.Seat;
 import com.example.icadi.lepetitcinema.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SeatPickerActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,7 +28,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
 //    public final static String CINEMAROOMNR = "CINEMAROOMNR";
 
-    private ImageView[][] seatImageViews;
+    private HashMap<String, SeatImageViewBundle> seats;
     private ArrayList<Seat> currentlySelectedSeats = new ArrayList<>();
     private TextView amountOfSeatsTextView;
     private Button buyTicketButton;
@@ -69,14 +70,8 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
         amountOfSeatsTextView = (TextView) findViewById(R.id.seatPicker_textView_amountOfSeats);
 
-        // Create 2d array for the ImageViews
-        seatImageViews = getAllSeats();
-
-        // Calculate and log the size of the 2d array
-        int sizeOfSeatImageViews = (seatImageViews[0].length + seatImageViews[1].length +
-                seatImageViews[3].length + seatImageViews[4].length + seatImageViews[5].length +
-                seatImageViews[0].length);
-        Log.i("SeatPickerActivity", "size:" + sizeOfSeatImageViews);
+        // Initialise all seats
+        initSeats();
 
         buyTicketButton = findViewById(R.id.seatPicker_button_buyTickets);
         buyTicketButton.setOnClickListener(this);
@@ -113,7 +108,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
      *
      * @return A 2d array of ImageViews.
      */
-    public ImageView[][] getAllSeats() {
+    public void initSeats() {
         ImageView[][] imageViews = new ImageView[6][9];
 
         for (int i = 0; i < 6; i++) {
@@ -122,10 +117,13 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                 int resId = getResources().getIdentifier(seatId, "id", getPackageName());
                 ImageView imageView = (ImageView) findViewById(resId);
                 imageView.setOnClickListener(this);
-                imageViews[i][ii] = imageView;
+
+                Seat seat = new Seat(seatId);
+                SeatImageViewBundle seatImageViewBundle = new SeatImageViewBundle(seat, imageView);
+
+                seats.put(seatId , seatImageViewBundle);
             }
         }
-        return imageViews;
     }
 
     @Override
@@ -289,14 +287,6 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
         totalPrice = childPrice + normalPrice + elderPrice;
         totalPriceTextView.setText("" + totalPrice + " euro");
 
-    }
-
-    public ImageView[][] getSeatImageViews() {
-        return seatImageViews;
-    }
-
-    public void setSeatImageViews(ImageView[][] seatImageViews) {
-        this.seatImageViews = seatImageViews;
     }
 
     public ArrayList<Seat> getCurrentlySelectedSeats() {
