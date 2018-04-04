@@ -63,6 +63,9 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
     private double totalPrice;
     private TextView totalPriceTextView;
 
+    private int totalTickets;
+    private TextView totalTicketsTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +105,8 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
         elderPriceTextView = findViewById(R.id.seatPicker_textView_elderPrice);
 
         totalPriceTextView = findViewById(R.id.seatPicker_textView_totalPriceAmount);
+
+        totalTicketsTextView = findViewById(R.id.seatPicker_textView_totalTicketsAmount);
     }
 
     /**
@@ -172,7 +177,7 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
                     toPayment.putExtra(SEATS, currentlySelectedSeats);
                     toPayment.putExtra(FILMTITLE, getIntent().getStringExtra(FILMTITLE));
                     toPayment.putExtra(PRICE, totalPrice);
-                    toPayment.putExtra(AMOUNTOFTICKETS, "" + currentlySelectedSeats.size());
+                    toPayment.putExtra(AMOUNTOFTICKETS, "" + totalTickets);
                     toPayment.putExtra(FILM_IMAGE, getIntent().getStringExtra(FILM_IMAGE));
 
                     startActivity(toPayment);
@@ -333,6 +338,9 @@ public class SeatPickerActivity extends AppCompatActivity implements View.OnClic
 
         totalPrice = childPrice + normalPrice + elderPrice;
         totalPriceTextView.setText("" + totalPrice + " euro");
+
+        totalTickets = childAmount + normalAmount + elderAmount;
+        totalTicketsTextView.setText("" + totalTickets);
 
     }
 
