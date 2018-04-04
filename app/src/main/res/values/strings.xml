@@ -5,12 +5,12 @@
     <string name="app_name" translatable="false">Le Petit Cinéma</string>
     <string name="Address" translatable="false">Van Coothplein 17b, 4811 NC BREDA</string>
     <string name="OpeningHours">Openingstijden</string>
-    <string name="Monday">maandag:      gesloten</string>
-    <string name="Tuesday">dinsdag:     09:30 tot 21:30</string>
-    <string name="Wednesday">woensdag:     09:30 tot 21:30</string>
-    <string name="Thursday">donderdag:     09:30 tot 21:30</string>
-    <string name="Friday">vrijdag:     09:30 tot 21:30</string>
-    <string name="Sunday">zondag:     12:00 tot 17:00</string>
+    <string name="Monday">Monday:      gesloten</string>
+    <string name="Tuesday">Tuesday:     09:30 tot 21:30</string>
+    <string name="Wednesday">Wednesday:     09:30 tot 21:30</string>
+    <string name="Thursday">Thursday:     09:30 tot 21:30</string>
+    <string name="Friday">Friday:     09:30 tot 21:30</string>
+    <string name="Sunday">Sunday:     12:00 tot 17:00</string>
     <string name="TelephoneNumber" translatable="false">+31 76 562 3773</string>
     <string name="Emailaddress" translatable="false">events@lepetitcinema.nl</string>
     <string name="Saturday">zaterdag:     09:30 tot 22:30</string>
@@ -18,8 +18,7 @@
     <string name="ticketString">Ticket</string>
     <string name="paymentSimulationAmountTickets">Amount of tickets:\u0020</string>
     <string name="paymentSimulationSeats">Seats:\u0020</string>
-    <string name="SendReview">Verzend review</string>
-    <string name="Reviewheader">Geef een review</string>
-    <string name="Emailheader">Voer uw naam in</string>
+    <string name="SendReview">Send Review</string>
+    <string name="Reviewheader">Review Film</string>
 
 </resources>
