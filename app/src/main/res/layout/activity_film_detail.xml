@@ -7,6 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".Presentation.FilmDetailActivity">
 
+    <TextView
+        android:id="@+id/detail_activity_film_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/detail_activity_rating"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_activity_film_image"
+        app:layout_constraintVertical_bias="0.120000005" />
+
     <ImageView
         android:id="@+id/detail_activity_film_image"
         android:layout_width="0dp"
@@ -84,7 +102,7 @@
         app:srcCompat="@drawable/ic_shopping_cart_black_36dp" />
 
     <TextView
-        android:id="@+id/detail_activity_film_description"
+        android:id="@+id/detail_activity_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -93,10 +111,10 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Description"
+        android:text="Rating"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.97"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_activity_film_image"
         app:layout_constraintVertical_bias="0.120000005" />
@@ -123,6 +141,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -130,10 +149,12 @@
         android:layout_marginTop="24dp"
         android:text="Reviews"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_activity_film_description" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_activity_rating"
+        app:layout_constraintVertical_bias="0.120000005" />
 
 
 </android.support.constraint.ConstraintLayout>
