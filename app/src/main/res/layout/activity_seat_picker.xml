@@ -655,7 +655,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Amount of seats:"
+            android:text="@string/SP_AmountOfSeats"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/screen" />
 
@@ -681,7 +681,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Child (age 0-12):"
+            android:text="@string/SP_Child"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
 
@@ -738,7 +738,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Normal (age 13-64):"
+            android:text="@string/SP_Normal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
@@ -784,7 +784,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Elder (age 65+):"
+            android:text="@string/SP_Elder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
@@ -819,7 +819,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Total price:"
+            android:text="@string/SP_TotalPrice"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider5" />
 
@@ -832,7 +832,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Total amount of tickets:"
+            android:text="@string/SP_TotalTickets"
             app:layout_constraintEnd_toStartOf="@+id/seatPicker_textView_totalTicketsAmount"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/seatPicker_textView_totalPriceAmount"

@@ -18,4 +18,10 @@
     <string name="ticketString">Ticket</string>
     <string name="paymentSimulationAmountTickets">Amount of tickets:\u0020</string>
     <string name="paymentSimulationSeats">Seats:\u0020</string>
+    <string name="SP_AmountOfSeats">Amount of seats:</string>
+    <string name="SP_Child">Child (age 0-12):</string>
+    <string name="SP_Normal">Normal (age 13-64):</string>
+    <string name="SP_Elder">Elder (age 65+):</string>
+    <string name="SP_TotalPrice">Total price:</string>
+    <string name="SP_TotalTickets">Total amount of tickets:</string>
 </resources>

@@ -8,4 +8,10 @@
     <string name="Monday">maandag:      gesloten</string>
     <string name="Thursday">donderdag:     09:30 tot 21:30</string>
     <string name="Tuesday">dinsdag:     09:30 tot 21:30</string>
+    <string name="SP_AmountOfSeats">Aantal stoelen:</string>
+    <string name="SP_Child">Kind (0-12 jaar):</string>
+    <string name="SP_Normal">Normaal (13-64 jaar):</string>
+    <string name="SP_Elder">65+:</string>
+    <string name="SP_TotalPrice">Totaalprijs:</string>
+    <string name="SP_TotalTickets">Totaal aantal tickets:</string>
 </resources>
