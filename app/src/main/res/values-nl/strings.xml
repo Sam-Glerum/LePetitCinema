@@ -25,4 +25,14 @@
     <string name="SP_TAndSNotEqual_Message">"Er zijn momenteel %1$d stoelen en %2$d tickets geselecteerd."</string>
     <string name="SP_changeSelectionButton">Wijzig selectie</string>
     <string name="SP_OkButton">Ok</string>
+    <string name="menuItemETicket">Kaartjes</string>
+    <string name="ticketString">Kaartje</string>
+    <string name="paymentSimulationAmountTickets">Aantal kaartjes:</string>
+    <string name="paymentSimulationSeats">Stoelen:</string>
+    <string name="payTicketButton">Reserveer ticket</string>
+    <string name="paymentSuccess">Betaling Succesvol!</string>
+    <string name="backToHomeButton">Terug naar home</string>
+    <string name="SendReview">Verstuur review</string>
+    <string name="Reviewheader">Review Film</string>
+    <string name="Main_searchButton">Zoeken</string>
 </resources>

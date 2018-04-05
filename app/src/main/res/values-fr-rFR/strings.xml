@@ -26,4 +26,13 @@
     <string name="SP_TAndSNotEqual_Message">Il y a actuellement %1$d sièges et %2$d billets sélectionnés.</string>
     <string name="SP_changeSelectionButton">Changer la sélection</string>
     <string name="SendReview">Envoyez révision</string>
+    <string name="Main_searchButton">Chercher</string>
+    <string name="Reviewheader">revoir le film</string>
+    <string name="paymentSimulationSeats">des places</string>
+    <string name="paymentSimulationAmountTickets">quantité de billets</string>
+    <string name="ticketString">billet</string>
+    <string name="menuItemETicket">des billets</string>
+    <string name="backToHomeButton">de retour à la maison</string>
+    <string name="paymentSuccess">succès de paiement</string>
+    <string name="payTicketButton">ticket de commande</string>
 </resources>
