@@ -16,19 +16,33 @@
         android:layout_height="match_parent"
         android:minHeight="147dp">
 
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="match_parent"
-            android:layout_height="51dp"
+        <Button
+            android:id="@+id/main_activity_search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="68dp"
+            android:text="@string/Main_searchButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/main_activity_search_bar"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        </SearchView>
+        <EditText
+            android:id="@+id/main_activity_search_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="68dp"
+            android:ems="10"
+            android:hint="Search"
+            android:inputType="textPersonName"
+            android:focusedByDefault="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ListView
             android:id="@+id/filmList"
@@ -37,11 +51,12 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchView">
+            app:layout_constraintTop_toBottomOf="@+id/main_activity_search_bar"
+            app:layout_constraintVertical_bias="0.0">
 
         </ListView>
     </android.support.constraint.ConstraintLayout>
